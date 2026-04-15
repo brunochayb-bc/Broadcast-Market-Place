@@ -2,7 +2,8 @@ import {
   ChevronRight,
   LayoutDashboard,
   Settings,
-  HelpCircle
+  HelpCircle,
+  MessageSquare
 } from "lucide-react";
 
 import {
@@ -140,11 +141,17 @@ export function AppSidebar({ activeCategory, onSelectCategory, language }: AppSi
       <SidebarFooter className="p-6 border-t border-white/5">
         <SidebarMenu>
           {[
-            { icon: Settings, label: language === 'pt' ? "Configurações" : "Settings" },
-            { icon: HelpCircle, label: language === 'pt' ? "Suporte" : "Support" }
+            { icon: Settings, label: t.settings },
+            { icon: HelpCircle, label: t.support },
+            { icon: MessageSquare, label: t.talkToExpert, highlight: true }
           ].map((item) => (
             <SidebarMenuItem key={item.label}>
-              <SidebarMenuButton className="text-white/40 hover:text-white transition-colors h-10 px-6">
+              <SidebarMenuButton className={cn(
+                "transition-colors h-10 px-6",
+                item.highlight 
+                  ? "text-yellow-400 hover:text-yellow-300 bg-yellow-400/5 hover:bg-yellow-400/10 mt-2 rounded-lg" 
+                  : "text-white/40 hover:text-white"
+              )}>
                 <item.icon className="h-4 w-4 mr-3" />
                 <span className="text-[12px] font-bold">{item.label}</span>
               </SidebarMenuButton>

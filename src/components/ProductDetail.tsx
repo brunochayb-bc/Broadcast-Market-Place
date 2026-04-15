@@ -3,11 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
   ArrowLeft, 
+  ArrowRight,
   CheckCircle2, 
   Clock, 
   CreditCard, 
   ShieldCheck,
-  Star
+  Star,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 import { motion } from "motion/react";
 import { Separator } from "@/components/ui/separator";
@@ -16,10 +19,12 @@ import { Language, translations } from "@/src/lib/i18n";
 interface ProductDetailProps {
   product: Product;
   onBack: () => void;
+  onNext: () => void;
+  onPrev: () => void;
   language: Language;
 }
 
-export function ProductDetail({ product, onBack, language }: ProductDetailProps) {
+export function ProductDetail({ product, onBack, onNext, onPrev, language }: ProductDetailProps) {
   const Icon = product.icon;
   const t = translations[language];
   const p = product.translations[language] || product.translations.en;
@@ -36,14 +41,36 @@ export function ProductDetail({ product, onBack, language }: ProductDetailProps)
       exit={{ opacity: 0, y: -20 }}
       className="max-w-6xl mx-auto px-4 py-8"
     >
-      <Button 
-        variant="ghost" 
-        onClick={onBack} 
-        className={`mb-8 -ml-2 text-[#a0aec0] transition-all ${isYellowTheme ? 'hover:text-yellow-400' : 'hover:text-[#00c3ff]'} hover:bg-white/5`}
-      >
-        <ArrowLeft className="mr-2 h-4 w-4" />
-        {t.backToList}
-      </Button>
+      <div className="flex items-center justify-between mb-8">
+        <Button 
+          variant="ghost" 
+          onClick={onBack} 
+          className={`-ml-2 text-[#a0aec0] transition-all ${isYellowTheme ? 'hover:text-yellow-400' : 'hover:text-[#00c3ff]'} hover:bg-white/5`}
+        >
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          {t.backToList}
+        </Button>
+
+        <div className="flex items-center gap-2">
+          <Button 
+            variant="ghost" 
+            onClick={onPrev}
+            className={`text-[#a0aec0] transition-all ${isYellowTheme ? 'hover:text-yellow-400' : 'hover:text-[#00c3ff]'} hover:bg-white/5`}
+          >
+            <ChevronLeft className="mr-2 h-4 w-4" />
+            {t.previous}
+          </Button>
+          <Separator orientation="vertical" className="h-4 bg-white/10" />
+          <Button 
+            variant="ghost" 
+            onClick={onNext}
+            className={`text-[#a0aec0] transition-all ${isYellowTheme ? 'hover:text-yellow-400' : 'hover:text-[#00c3ff]'} hover:bg-white/5`}
+          >
+            {t.next}
+            <ChevronRight className="ml-2 h-4 w-4" />
+          </Button>
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-8">

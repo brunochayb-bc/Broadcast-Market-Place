@@ -8,7 +8,7 @@ export const translations = {
     home: "Home",
     segments: "Segmentos",
     exploreMarketplace: "Explorar Marketplace",
-    talkToExpert: "Falar com Especialista",
+    talkToExpert: "Fale Conosco",
     heroTitle: "Inteligência que move os mercados.",
     heroSubtext: "Conheça módulos adicionais (add-ons) e ferramentas que podem otimizar o seu fluxo operacional e auxiliar na tomada de decisão. Tudo integrado com o ecossistema Broadcast.",
     features: {
@@ -53,7 +53,11 @@ export const translations = {
     freeTrial: "7 Dias Grátis",
     hireNow: "Contratar Agora",
     underConsultation: "Sob consulta",
-    perMonth: "/ mês"
+    perMonth: "/ mês",
+    settings: "Configurações",
+    support: "Suporte",
+    next: "Próximo",
+    previous: "Anterior"
   },
   en: {
     searchPlaceholder: "Search Broadcast Marketplace...",
@@ -62,7 +66,7 @@ export const translations = {
     home: "Home",
     segments: "Segments",
     exploreMarketplace: "Explore Marketplace",
-    talkToExpert: "Talk to Expert",
+    talkToExpert: "Contact Us",
     heroTitle: "Intelligence that moves the markets.",
     heroSubtext: "Discover additional modules (add-ons) and tools that can optimize your operational flow and assist in decision making. All integrated with the Broadcast ecosystem.",
     features: {
@@ -107,7 +111,11 @@ export const translations = {
     freeTrial: "7 Days Free",
     hireNow: "Hire Now",
     underConsultation: "Under consultation",
-    perMonth: "/ month"
+    perMonth: "/ month",
+    settings: "Settings",
+    support: "Support",
+    next: "Next",
+    previous: "Previous"
   },
   es: {
     searchPlaceholder: "Buscar en el Marketplace Broadcast...",
@@ -116,7 +124,7 @@ export const translations = {
     home: "Inicio",
     segments: "Segmentos",
     exploreMarketplace: "Explorar Marketplace",
-    talkToExpert: "Hablar con Experto",
+    talkToExpert: "Contáctenos",
     heroTitle: "Inteligencia que mueve los mercados.",
     heroSubtext: "Conozca módulos adicionales (add-ons) y herramientas que podem optimizar su flujo operativo y auxiliar en la toma de decisiones. Todo integrado con el ecosistema Broadcast.",
     features: {
@@ -161,6 +169,10 @@ export const translations = {
     freeTrial: "7 Días Gratis",
     hireNow: "Contratar Ahora",
     underConsultation: "Bajo consulta",
-    perMonth: "/ mes"
+    perMonth: "/ mes",
+    settings: "Configuraciones",
+    support: "Soporte",
+    next: "Siguiente",
+    previous: "Anterior"
   }
 };

@@ -64,6 +64,27 @@ export default function App() {
     setSelectedProduct(null);
   };
 
+  const handleNextProduct = () => {
+    if (!selectedProduct) return;
+    const currentIndex = filteredProducts.findIndex(p => p.id === selectedProduct.id);
+    if (currentIndex < filteredProducts.length - 1) {
+      setSelectedProduct(filteredProducts[currentIndex + 1]);
+    } else {
+      // Loop back to first or just stay (let's loop for better UX)
+      setSelectedProduct(filteredProducts[0]);
+    }
+  };
+
+  const handlePrevProduct = () => {
+    if (!selectedProduct) return;
+    const currentIndex = filteredProducts.findIndex(p => p.id === selectedProduct.id);
+    if (currentIndex > 0) {
+      setSelectedProduct(filteredProducts[currentIndex - 1]);
+    } else {
+      setSelectedProduct(filteredProducts[filteredProducts.length - 1]);
+    }
+  };
+
   return (
     <TooltipProvider>
       <SidebarProvider>
@@ -137,6 +158,8 @@ export default function App() {
                         <ProductDetail 
                           product={selectedProduct} 
                           onBack={handleBackToList} 
+                          onNext={handleNextProduct}
+                          onPrev={handlePrevProduct}
                           language={language}
                         />
                       </div>
