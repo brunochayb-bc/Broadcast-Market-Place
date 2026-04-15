@@ -6,7 +6,8 @@ import {
   Shield, 
   BarChart3, 
   Users, 
-  CheckCircle2 
+  CheckCircle2,
+  LayoutDashboard
 } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -27,12 +28,25 @@ export function HomeView({ onExplore }: HomeViewProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <img 
-              src="input_file_1.png" 
-              alt="Broadcast Logo" 
-              className="h-16 w-auto object-contain mb-10"
-              referrerPolicy="no-referrer"
-            />
+            <div className="relative mb-10">
+              <img 
+                src="/input_file_0.png" 
+                alt="Broadcast Logo" 
+                className="h-12 w-auto object-contain brightness-0 invert"
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  const fallback = e.currentTarget.parentElement?.querySelector('.fallback-logo');
+                  if (fallback) fallback.classList.remove('hidden');
+                }}
+              />
+              <div className="fallback-logo hidden flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#00c3ff] text-[#001f3f] shadow-lg shadow-[#00c3ff]/20">
+                  <LayoutDashboard className="h-6 w-6" />
+                </div>
+                <span className="text-3xl font-black tracking-tighter text-white uppercase">Broadcast</span>
+              </div>
+            </div>
             <h1 className="text-5xl lg:text-7xl font-black tracking-tighter leading-[0.95] mb-8">
               Inteligência que <span className="text-[#00c3ff] drop-shadow-[0_0_15px_rgba(0,195,255,0.3)]">move</span> os mercados.
             </h1>

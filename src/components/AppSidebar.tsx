@@ -84,9 +84,9 @@ export function AppSidebar({ activeCategory, onSelectCategory }: AppSidebarProps
       <SidebarHeader className="p-6 pb-2">
         <div className="flex items-center gap-3">
           <img 
-            src="input_file_1.png" 
+            src="/input_file_0.png" 
             alt="Broadcast Logo" 
-            className="h-10 w-auto object-contain"
+            className="h-8 w-auto object-contain brightness-0 invert"
             referrerPolicy="no-referrer"
             onError={(e) => {
               // Fallback if the logo is not found
