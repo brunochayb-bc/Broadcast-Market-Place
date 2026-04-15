@@ -25,11 +25,12 @@ export function ProductCard({ product, onViewDetails, language }: ProductCardPro
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
+      whileHover={{ y: -5, scale: 1.02 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
       className="h-full"
     >
       <ShadcnCard 
-        className="h-full flex flex-col overflow-hidden border-[#2d3748] bg-[#141d2b] card-hover-effect group cursor-pointer" 
+        className="h-full flex flex-col overflow-hidden border-[#2d3748] bg-[#141d2b] card-hover-effect group cursor-pointer hover:shadow-2xl hover:shadow-[#00c3ff]/10 hover:border-[#00c3ff]/30 transition-all duration-300" 
         onClick={() => onViewDetails(product)}
       >
         <ShadcnCardHeader className="p-6 pb-2">

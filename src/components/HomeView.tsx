@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { 
   ArrowRight, 
@@ -7,78 +8,157 @@ import {
   BarChart3, 
   Users, 
   CheckCircle2,
-  LayoutDashboard
+  LayoutDashboard,
+  X
 } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { Language, translations } from "@/src/lib/i18n";
+import { categories } from "@/src/data/products";
+import { cn } from "@/lib/utils";
 
 interface HomeViewProps {
-  onExplore: () => void;
+  onExplore: (categoryId: string) => void;
   language: Language;
 }
 
 export function HomeView({ onExplore, language }: HomeViewProps) {
   const t = translations[language];
+  const [showCategories, setShowCategories] = useState(false);
+
+  const displayCategories = categories.filter(c => c.id !== "home");
 
   return (
     <div className="space-y-24 pb-20">
-      <section className="relative overflow-hidden rounded-3xl bg-[#001f3f] text-white p-12 lg:p-20 border border-white/5 shadow-2xl shadow-black/50">
+      <section className="relative overflow-hidden rounded-3xl bg-[#001f3f] text-white p-12 lg:p-20 border border-white/5 shadow-2xl shadow-black/50 min-h-[600px] flex items-center">
         <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#00c3ff]/10 to-transparent pointer-events-none" />
         <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#00c3ff]/5 rounded-full blur-3xl pointer-events-none" />
         
-        <div className="relative z-10 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <div className="relative mb-10">
-              <img 
-                src="/input_file_0.png" 
-                alt="Broadcast Logo" 
-                className="h-12 w-auto object-contain brightness-0 invert"
-                referrerPolicy="no-referrer"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  const fallback = e.currentTarget.parentElement?.querySelector('.fallback-logo');
-                  if (fallback) fallback.classList.remove('hidden');
-                }}
-              />
-              <div className="fallback-logo hidden flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#00c3ff] text-[#001f3f] shadow-lg shadow-[#00c3ff]/20">
-                  <LayoutDashboard className="h-6 w-6" />
+        <div className="relative z-10 w-full">
+          <AnimatePresence mode="wait">
+            {!showCategories ? (
+              <motion.div
+                key="hero"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="max-w-4xl"
+              >
+                <div className="relative mb-10">
+                  <img 
+                    src="/input_file_0.png" 
+                    alt="Broadcast Logo" 
+                    className="h-12 w-auto object-contain brightness-0 invert"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      const fallback = e.currentTarget.parentElement?.querySelector('.fallback-logo');
+                      if (fallback) fallback.classList.remove('hidden');
+                    }}
+                  />
+                  <div className="fallback-logo hidden flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#00c3ff] text-[#001f3f] shadow-lg shadow-[#00c3ff]/20">
+                      <LayoutDashboard className="h-6 w-6" />
+                    </div>
+                    <span className="text-3xl font-black tracking-tighter text-white uppercase">Broadcast</span>
+                  </div>
                 </div>
-                <span className="text-3xl font-black tracking-tighter text-white uppercase">Broadcast</span>
-              </div>
-            </div>
-            <h1 className="text-5xl lg:text-7xl font-black tracking-tighter leading-[0.95] mb-8">
-              {(() => {
-                const wordToHighlight = language === 'en' ? 'moves' : language === 'es' ? 'mueve' : 'move';
-                return t.heroTitle.split(wordToHighlight).map((part, i, arr) => (
-                  <span key={i}>
-                    {part}
-                    {i < arr.length - 1 && (
-                      <span className="text-[#00c3ff] drop-shadow-[0_0_15px_rgba(0,195,255,0.3)]">
-                        {wordToHighlight}
+                <h1 className="text-5xl lg:text-7xl font-black tracking-tighter leading-[0.95] mb-8">
+                  {(() => {
+                    const wordToHighlight = language === 'en' ? 'moves' : language === 'es' ? 'mueve' : 'move';
+                    return t.heroTitle.split(wordToHighlight).map((part, i, arr) => (
+                      <span key={i}>
+                        {part}
+                        {i < arr.length - 1 && (
+                          <span className="text-[#00c3ff] drop-shadow-[0_0_15px_rgba(0,195,255,0.3)]">
+                            {wordToHighlight}
+                          </span>
+                        )}
                       </span>
-                    )}
-                  </span>
-                ));
-              })()}
-            </h1>
-            <p className="text-xl text-[#a0aec0] leading-relaxed mb-12 max-w-2xl font-medium">
-              {t.heroSubtext}
-            </p>
-            <div className="flex flex-wrap gap-6">
-              <Button size="lg" onClick={onExplore} className="h-14 px-10 bg-[#00c3ff] text-[#001f3f] font-black uppercase tracking-wider hover:bg-[#00c3ff]/90 hover:scale-105 transition-all shadow-xl shadow-[#00c3ff]/20 border-none">
-                {t.exploreMarketplace}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button size="lg" variant="outline" className="h-14 px-10 font-black uppercase tracking-wider bg-transparent border-white/10 text-white hover:bg-white/5 transition-all">
-                {t.talkToExpert}
-              </Button>
-            </div>
-          </motion.div>
+                    ));
+                  })()}
+                </h1>
+                <p className="text-xl text-[#a0aec0] leading-relaxed mb-12 max-w-2xl font-medium">
+                  {t.heroSubtext}
+                </p>
+                <div className="flex flex-wrap gap-6">
+                  <Button size="lg" onClick={() => setShowCategories(true)} className="h-14 px-10 bg-[#00c3ff] text-[#001f3f] font-black uppercase tracking-wider hover:bg-[#00c3ff]/90 hover:scale-105 transition-all shadow-xl shadow-[#00c3ff]/20 border-none">
+                    {t.exploreMarketplace}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                  <Button size="lg" variant="outline" className="h-14 px-10 font-black uppercase tracking-wider bg-transparent border-white/10 text-white hover:bg-white/5 transition-all">
+                    {t.talkToExpert}
+                  </Button>
+                </div>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="categories"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5, ease: "circOut" }}
+                className="w-full"
+              >
+                <div className="flex items-center justify-between mb-12">
+                  <div>
+                    <h2 className="text-3xl font-black tracking-tighter uppercase mb-2">
+                      {t.exploreMarketplace}
+                    </h2>
+                    <div className="h-1 w-20 bg-[#00c3ff] rounded-full" />
+                  </div>
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    onClick={() => setShowCategories(false)}
+                    className="rounded-full hover:bg-white/10 text-white/60 hover:text-white"
+                  >
+                    <X className="h-6 w-6" />
+                  </Button>
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
+                  {displayCategories.map((category, i) => {
+                    const themeColor = "text-[#00c3ff]";
+                    const themeBg = "bg-[#00c3ff]/10";
+                    const themeBorder = "group-hover:border-[#00c3ff]/50";
+                    const themeShadow = "group-hover:shadow-[#00c3ff]/10";
+
+                    return (
+                      <motion.div
+                        key={category.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.05 }}
+                        whileHover={{ y: -8, scale: 1.02 }}
+                        onClick={() => onExplore(category.id)}
+                        className={cn(
+                          "group cursor-pointer p-6 rounded-2xl bg-white/5 border border-white/10 transition-all duration-300",
+                          "flex flex-col items-center text-center gap-4 min-h-[160px] justify-center",
+                          themeBorder,
+                          themeShadow,
+                          "hover:bg-white/[0.08] shadow-lg"
+                        )}
+                      >
+                        <div className={cn(
+                          "w-14 h-14 rounded-2xl flex items-center justify-center transition-transform duration-500 group-hover:rotate-12 shrink-0",
+                          themeBg,
+                          themeColor
+                        )}>
+                          <category.icon className="h-7 w-7" />
+                        </div>
+                        <span className="text-[11px] lg:text-[12px] font-black uppercase tracking-wider text-white/80 group-hover:text-white transition-colors leading-tight break-words max-w-full">
+                          {category.translations[language].split('/').map((part, index) => (
+                            <span key={index} className="block">{part}</span>
+                          ))}
+                        </span>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 

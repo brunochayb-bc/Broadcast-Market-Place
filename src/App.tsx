@@ -166,7 +166,7 @@ export default function App() {
                     ) : activeCategory === "home" && !searchQuery ? (
                       <div key="home">
                         <HomeView 
-                          onExplore={() => handleSelectCategory("renda-fixa")} 
+                          onExplore={handleSelectCategory} 
                           language={language}
                         />
                       </div>
