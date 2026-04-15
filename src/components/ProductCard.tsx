@@ -15,6 +15,11 @@ export function ProductCard({ product, onViewDetails, language }: ProductCardPro
   const Icon = product.icon;
   const t = translations[language];
   const p = product.translations[language];
+  const isPolitical = product.category === "broadcast-politico";
+  const themeText = isPolitical ? "text-yellow-400" : "text-[#00c3ff]";
+  const themeBg = isPolitical ? "bg-yellow-400/10" : "bg-[#00c3ff]/10";
+  const themeIconColor = isPolitical ? "text-yellow-400" : "text-[#00c3ff]";
+  const themeHoverText = isPolitical ? "group-hover:text-yellow-400" : "group-hover:text-[#00c3ff]";
 
   return (
     <motion.div
@@ -29,14 +34,14 @@ export function ProductCard({ product, onViewDetails, language }: ProductCardPro
       >
         <ShadcnCardHeader className="p-6 pb-2">
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-12 h-12 rounded-xl bg-[#001f3f] border border-[#2d3748] flex items-center justify-center text-[#00c3ff] group-hover:scale-110 transition-transform duration-300">
+            <div className={`w-12 h-12 rounded-xl bg-[#001f3f] border border-[#2d3748] flex items-center justify-center ${themeIconColor} group-hover:scale-110 transition-transform duration-300`}>
               <Icon className="h-6 w-6" />
             </div>
             <div className="flex flex-col">
-              <h3 className="text-[16px] font-bold text-white group-hover:text-[#00c3ff] transition-colors leading-tight">
+              <h3 className={`text-[16px] font-bold text-white ${themeHoverText} transition-colors leading-tight`}>
                 {p.name}
               </h3>
-              <span className="text-[10px] uppercase tracking-widest text-[#00c3ff]/60 font-black mt-1">
+              <span className={`text-[10px] uppercase tracking-widest ${isPolitical ? 'text-yellow-400/60' : 'text-[#00c3ff]/60'} font-black mt-1`}>
                 {product.category.replace('-', ' ')}
               </span>
             </div>
@@ -55,8 +60,8 @@ export function ProductCard({ product, onViewDetails, language }: ProductCardPro
           </div>
         </ShadcnCardContent>
         <div className="px-6 py-4 border-t border-white/5 bg-white/[0.02] flex items-center justify-between">
-          <span className="text-[12px] font-bold text-white/40 group-hover:text-[#00c3ff] transition-colors">{t.viewDetails}</span>
-          <ArrowRight className="h-4 w-4 text-white/20 group-hover:text-[#00c3ff] group-hover:translate-x-1 transition-all" />
+          <span className={`text-[12px] font-bold text-white/40 ${themeHoverText} transition-colors`}>{t.viewDetails}</span>
+          <ArrowRight className={`h-4 w-4 text-white/20 ${themeHoverText} group-hover:translate-x-1 transition-all`} />
         </div>
       </ShadcnCard>
     </motion.div>

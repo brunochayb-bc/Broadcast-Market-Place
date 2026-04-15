@@ -56,6 +56,7 @@ export const categories = [
   { id: "negociacao", icon: Activity, translations: { pt: "Negociação/Transacional", en: "Trading/Transactional" } },
   { id: "agro", icon: Sprout, translations: { pt: "Agro", en: "Agribusiness" } },
   { id: "ia", icon: BrainCircuit, translations: { pt: "Inteligência Artificial", en: "Artificial Intelligence" } },
+  { id: "broadcast-politico", icon: Scale, translations: { pt: "Broadcast Político", en: "Broadcast Political" } },
   { id: "outros", icon: Zap, translations: { pt: "Outros", en: "Others" } },
 ];
 
@@ -620,6 +621,33 @@ export const products: Product[] = [
         advantages: ["Natural language processing", "Fast and precise insights", "Exclusive Broadcast database", "Drastic increase in productivity"],
         cost: "R$ 400.00 / month",
         features: ["Financial GenAI", "Contextual Financial Chat", "Data Synthesis & Insights"],
+      }
+    }
+  },
+
+  // Broadcast Político
+  {
+    id: "broadcast-politico-app",
+    category: "broadcast-politico",
+    icon: Scale,
+    translations: {
+      pt: {
+        name: "Broadcast Político App",
+        shortDescription: "Acompanhamento em tempo real do cenário político e legislativo.",
+        fullDescription: "O Broadcast Político App oferece monitoramento exclusivo de Brasília, com notícias, análises e alertas sobre decisões que impactam o mercado financeiro. Acesse o conteúdo completo do Broadcast Político diretamente no seu dispositivo móvel.",
+        usageExample: "Um investidor utiliza o Broadcast Político App para receber alertas em tempo real sobre a votação de uma reforma importante no Congresso.",
+        advantages: ["Monitoramento 24/7 de Brasília", "Análises exclusivas de especialistas", "Alertas personalizados via Push", "Contratação simplificada via Cartão"],
+        cost: "R$ 299,00 / mês",
+        features: ["Legislative Tracker", "Political Risk Alerts", "Expert Commentary"],
+      },
+      en: {
+        name: "Broadcast Political App",
+        shortDescription: "Real-time monitoring of the political and legislative scenario.",
+        fullDescription: "The Broadcast Political App offers exclusive monitoring of Brasília, with news, analysis, and alerts on decisions that impact the financial market. Access the full Broadcast Political content directly on your mobile device.",
+        usageExample: "An investor uses the Broadcast Political App to receive real-time alerts about an important reform vote in Congress.",
+        advantages: ["24/7 monitoring of Brasília", "Exclusive expert analysis", "Personalized Push alerts", "Simplified hiring via Credit Card"],
+        cost: "R$ 299.00 / month",
+        features: ["Legislative Tracker", "Political Risk Alerts", "Expert Commentary"],
       }
     }
   },
