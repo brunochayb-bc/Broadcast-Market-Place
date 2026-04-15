@@ -34,6 +34,13 @@ export interface Product {
       advantages: string[];
       cost: string;
       features: string[];
+      availableAssets?: {
+        title: string;
+        categories: {
+          name: string;
+          items: string[];
+        }[];
+      };
     };
     en: {
       name: string;
@@ -43,6 +50,13 @@ export interface Product {
       advantages: string[];
       cost: string;
       features: string[];
+      availableAssets?: {
+        title: string;
+        categories: {
+          name: string;
+          items: string[];
+        }[];
+      };
     };
     es?: {
       name: string;
@@ -52,6 +66,13 @@ export interface Product {
       advantages: string[];
       cost: string;
       features: string[];
+      availableAssets?: {
+        title: string;
+        categories: {
+          name: string;
+          items: string[];
+        }[];
+      };
     };
   };
 }
@@ -66,6 +87,7 @@ export const categories = [
   { id: "agro", icon: Sprout, translations: { pt: "Agro", en: "Agribusiness", es: "Agro" } },
   { id: "ia", icon: BrainCircuit, translations: { pt: "Inteligência Artificial", en: "Artificial Intelligence", es: "Inteligencia Artificial" } },
   { id: "broadcast-politico", icon: Scale, translations: { pt: "Broadcast Político", en: "Broadcast Political", es: "Broadcast Político" } },
+  { id: "market-data-api", icon: Database, translations: { pt: "Market Data/API", en: "Market Data/API", es: "Market Data/API" } },
   { id: "outros", icon: Zap, translations: { pt: "Outros", en: "Others", es: "Otros" } },
 ];
 
@@ -600,27 +622,27 @@ export const products: Product[] = [
     }
   },
   {
-    id: "api-dados-agro",
+    id: "outros-agro",
     category: "agro",
-    icon: Cpu,
+    icon: Sprout,
     translations: {
       pt: {
-        name: "API de Dados Agro",
-        shortDescription: "Acesso direto a cotações e dados históricos via API.",
-        fullDescription: "Integre cotações de commodities, preços físicos e dados históricos do agronegócio diretamente em seus sistemas.",
-        usageExample: "Uma cooperativa integra a API para exibir cotações em tempo real em seu portal do cooperado.",
-        advantages: ["Fácil integração técnica", "Dados estruturados e limpos", "Histórico longo disponível", "Atualização em tempo real"],
-        cost: "R$ 500,00 / mês",
-        features: ["Commodity Price API", "Historical Data Access", "Physical Market Data"],
+        name: "Outros Agro",
+        shortDescription: "Diversos serviços e dados complementares para o agronegócio.",
+        fullDescription: "Acesso a uma gama variada de informações e ferramentas de suporte para o setor agropecuário.",
+        usageExample: "Um analista consulta dados complementares para compor um panorama setorial do agronegócio.",
+        advantages: ["Dados complementares variados", "Suporte especializado", "Informação setorial ampla", "Ferramentas auxiliares"],
+        cost: "Sob consulta",
+        features: ["Complementary Agro Data", "Specialized Support", "Sectoral Tools"],
       },
       en: {
-        name: "Agro Data API",
-        shortDescription: "Direct access to quotes and historical data via API.",
-        fullDescription: "Integrate commodity quotes, physical prices, and historical agribusiness data directly into your systems.",
-        usageExample: "A cooperative integrates the API to display real-time quotes in its member portal.",
-        advantages: ["Easy technical integration", "Structured and clean data", "Long history available", "Real-time update"],
-        cost: "R$ 500.00 / month",
-        features: ["Commodity Price API", "Historical Data Access", "Physical Market Data"],
+        name: "Other Agro",
+        shortDescription: "Various services and complementary data for agribusiness.",
+        fullDescription: "Access to a varied range of information and support tools for the agricultural sector.",
+        usageExample: "An analyst consults complementary data to compose a sectoral overview of agribusiness.",
+        advantages: ["Varied complementary data", "Specialized support", "Broad sectoral information", "Auxiliary tools"],
+        cost: "Upon request",
+        features: ["Complementary Agro Data", "Specialized Support", "Sectoral Tools"],
       }
     }
   },
@@ -795,6 +817,127 @@ export const products: Product[] = [
         advantages: ["Smart news filtering", "Personalized alerts via Push/Email", "Reliable information sources", "Time saving in analysis"],
         cost: "R$ 80.00 / month",
         features: ["Smart News Filtering", "Custom Alert Engine", "Topic-based Curation"],
+      },
+      es: {
+        name: "Curaduría de Noticias",
+        shortDescription: "Feed personalizado con las noticias más relevantes para seu perfil.",
+        fullDescription: "Filtre el ruido del mercado y reciba solo las noticias y alertas que impactan directamente en sus decisiones de inversión.",
+        usageExample: "Un inversor configura alertas para noticias sobre M&A en el sector de energía e saneamiento.",
+        advantages: ["Filtro inteligente de noticias", "Alertas personalizadas vía Push/Email", "Fuentes de información confiables", "Ahorro de tiempo en el análisis"],
+        cost: "R$ 80,00 / mes",
+        features: ["Smart News Filtering", "Custom Alert Engine", "Topic-based Curation"],
+      }
+    }
+  },
+  {
+    id: "broadcast-datafeed",
+    category: "market-data-api",
+    icon: Database,
+    translations: {
+      pt: {
+        name: "Broadcast DataFeed",
+        shortDescription: "Market Data via API: Automatize e integre dados e conteúdos.",
+        fullDescription: "A solução definitiva para alimentar suas aplicações via API com a qualidade Broadcast. Entrega de dados em milissegundos para aplicações de alta performance e trading, com suporte a protocolos REST e WebSocket. Arquitetura robusta preparada para suportar grandes volumes de requisições com total segurança e transparência.",
+        usageExample: "Uma fintech utiliza o Broadcast DataFeed via WebSocket para alimentar seu dashboard de trading com cotações em tempo real e latência inferior a 10ms.",
+        advantages: [
+          "Baixa Latência (<10ms)", 
+          "APIs REST e WebSocket", 
+          "Formatos flexíveis (JSON/CSV/XML)", 
+          "Escalabilidade para grandes volumes", 
+          "Segurança com criptografia e autenticação forte",
+          "SLA e suporte enterprise"
+        ],
+        cost: "Sob consulta",
+        features: [
+          "Cotações em Tempo Real", 
+          "Indicadores e Dados Fundamentalistas", 
+          "Notícias em Tempo Real", 
+          "Eventos Corporativos",
+          "Ambiente Sandbox de Homologação",
+          "Documentação Técnica"
+        ],
+        availableAssets: {
+          title: "Dados disponíveis",
+          categories: [
+            { name: "Mercados Globais", items: ["B3", "Nasdaq", "Nasdaq Basic", "NYSE", "ICE US (NYBOT)", "ICE Europe (IPE)", "CME", "CBOT", "COMEX", "Euronext", "LME", "NYMEX"] },
+            { name: "Equities", items: ["Ações", "BDRs", "ETFs", "Fundos"] },
+            { name: "Fixed Income", items: ["Títulos Públicos Federais", "CDBs, Debêntures, LCIs e LCAs", "CRIs e CRAs", "Government Bonds", "Corporate Bonds", "Certificados de Depósito"] },
+            { name: "OTC", items: ["FX Spot", "FX Forward", "FX Options", "FX Volatilities", "Non-Deliverable Forwards", "Credit Default Swaps", "Corporate Bonds", "US Treasuries"] },
+            { name: "Derivativos", items: ["Mercado Futuro Opções", "Swaps/Termo", "Commodities", "Metais/Energia"] },
+            { name: "Agro", items: ["Preços físicos", "Fretes", "Fertilizantes", "Prêmios Exportação"] },
+            { name: "Outros Dados", items: ["Dados macroeconômicos", "Taxas", "Dados estruturados", "Dados customizados", "Outros"] }
+          ]
+        },
+      },
+      en: {
+        name: "Broadcast DataFeed",
+        shortDescription: "Market Data via API: Automate and integrate data and content.",
+        fullDescription: "The definitive solution to power your applications via API with Broadcast quality. Data delivery in milliseconds for high-performance and trading applications, supporting REST and WebSocket protocols. Robust architecture prepared to support large volumes of requests with total security and transparency.",
+        usageExample: "A fintech uses Broadcast DataFeed via WebSocket to power its trading dashboard with real-time quotes and latency under 10ms.",
+        advantages: [
+          "Low Latency (<10ms)", 
+          "REST and WebSocket APIs", 
+          "Flexible formats (JSON/CSV/XML)", 
+          "Scalability for large volumes", 
+          "Security with encryption and strong authentication",
+          "SLA and enterprise support"
+        ],
+        cost: "Upon request",
+        features: [
+          "Real-time Quotes", 
+          "Indicators and Fundamental Data", 
+          "Real-time News", 
+          "Corporate Events",
+          "Sandbox Staging Environment",
+          "Technical Documentation"
+        ],
+        availableAssets: {
+          title: "Available Data",
+          categories: [
+            { name: "Global Markets", items: ["B3", "Nasdaq", "Nasdaq Basic", "NYSE", "ICE US (NYBOT)", "ICE Europe (IPE)", "CME", "CBOT", "COMEX", "Euronext", "LME", "NYMEX"] },
+            { name: "Equities", items: ["Stocks", "BDRs", "ETFs", "Funds"] },
+            { name: "Fixed Income", items: ["Federal Public Bonds", "CDBs, Debentures, LCIs and LCAs", "CRIs and CRAs", "Government Bonds", "Corporate Bonds", "Certificates of Deposit"] },
+            { name: "OTC", items: ["FX Spot", "FX Forward", "FX Options", "FX Volatilities", "Non-Deliverable Forwards", "Credit Default Swaps", "Corporate Bonds", "US Treasuries"] },
+            { name: "Derivatives", items: ["Future Market Options", "Swaps/Forward", "Commodities", "Metals/Energy"] },
+            { name: "Agro", items: ["Physical Prices", "Freight", "Fertilizers", "Export Premiums"] },
+            { name: "Other Data", items: ["Macroeconomic Data", "Rates", "Structured Data", "Customized Data", "Others"] }
+          ]
+        },
+      },
+      es: {
+        name: "Broadcast DataFeed",
+        shortDescription: "Market Data vía API: Automatice e integre datos y contenidos.",
+        fullDescription: "La solución definitiva para alimentar sus aplicaciones vía API con la calidad Broadcast. Entrega de datos en milisegundos para aplicaciones de alto rendimiento y trading, con soporte para protocolos REST y WebSocket. Arquitectura robusta preparada para soportar grandes volúmenes de solicitudes con total seguridad y transparencia.",
+        usageExample: "Una fintech utiliza Broadcast DataFeed vía WebSocket para alimentar su tablero de trading con cotizaciones en tiempo real y latencia inferior a 10ms.",
+        advantages: [
+          "Baja Latencia (<10ms)", 
+          "APIs REST y WebSocket", 
+          "Formatos flexibles (JSON/CSV/XML)", 
+          "Escalabilidad para grandes volúmenes", 
+          "Seguridad con criptografía y autenticación fuerte",
+          "SLA y soporte enterprise"
+        ],
+        cost: "Bajo consulta",
+        features: [
+          "Cotizaciones en Tiempo Real", 
+          "Indicadores y Datos Fundamentalistas", 
+          "Noticias en Tiempo Real", 
+          "Eventos Corporativos",
+          "Ambiente Sandbox de Homologación",
+          "Documentación Técnica"
+        ],
+        availableAssets: {
+          title: "Datos disponibles",
+          categories: [
+            { name: "Mercados Globales", items: ["B3", "Nasdaq", "Nasdaq Basic", "NYSE", "ICE US (NYBOT)", "ICE Europe (IPE)", "CME", "CBOT", "COMEX", "Euronext", "LME", "NYMEX"] },
+            { name: "Equities", items: ["Acciones", "BDRs", "ETFs", "Fondos"] },
+            { name: "Renta Fija", items: ["Títulos Públicos Federales", "CDBs, Debentures, LCIs y LCAs", "CRIs y CRAs", "Government Bonds", "Corporate Bonds", "Certificados de Depósito"] },
+            { name: "OTC", items: ["FX Spot", "FX Forward", "FX Options", "FX Volatilities", "Non-Deliverable Forwards", "Credit Default Swaps", "Corporate Bonds", "US Treasuries"] },
+            { name: "Derivativos", items: ["Mercado Futuro Opciones", "Swaps/Termo", "Commodities", "Metales/Energía"] },
+            { name: "Agro", items: ["Precios físicos", "Fletes", "Fertilizantes", "Primas de Exportación"] },
+            { name: "Otros Datos", items: ["Datos macroeconómicos", "Tasas", "Datos estruturados", "Datos personalizados", "Otros"] }
+          ]
+        },
       }
     }
   }

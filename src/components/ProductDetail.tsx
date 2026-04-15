@@ -23,11 +23,11 @@ export function ProductDetail({ product, onBack, language }: ProductDetailProps)
   const Icon = product.icon;
   const t = translations[language];
   const p = product.translations[language] || product.translations.en;
-  const isPolitical = product.id === "broadcast-politico-app";
-  const themeColor = isPolitical ? "#facc15" : "#00c3ff";
-  const themeText = isPolitical ? "text-yellow-400" : "text-[#00c3ff]";
-  const themeBorder = isPolitical ? "border-yellow-400/30" : "border-[#00c3ff]/30";
-  const themeBg = isPolitical ? "bg-yellow-400" : "bg-[#00c3ff]";
+  const isYellowTheme = product.id === "broadcast-politico-app" || product.id === "broadcast-datafeed";
+  const themeColor = isYellowTheme ? "#facc15" : "#00c3ff";
+  const themeText = isYellowTheme ? "text-yellow-400" : "text-[#00c3ff]";
+  const themeBorder = isYellowTheme ? "border-yellow-400/30" : "border-[#00c3ff]/30";
+  const themeBg = isYellowTheme ? "bg-yellow-400" : "bg-[#00c3ff]";
 
   return (
     <motion.div
@@ -39,7 +39,7 @@ export function ProductDetail({ product, onBack, language }: ProductDetailProps)
       <Button 
         variant="ghost" 
         onClick={onBack} 
-        className={`mb-8 -ml-2 text-[#a0aec0] transition-all ${isPolitical ? 'hover:text-yellow-400' : 'hover:text-[#00c3ff]'} hover:bg-white/5`}
+        className={`mb-8 -ml-2 text-[#a0aec0] transition-all ${isYellowTheme ? 'hover:text-yellow-400' : 'hover:text-[#00c3ff]'} hover:bg-white/5`}
       >
         <ArrowLeft className="mr-2 h-4 w-4" />
         {t.backToList}
@@ -90,8 +90,8 @@ export function ProductDetail({ product, onBack, language }: ProductDetailProps)
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {p.advantages.map((adv) => (
-                  <div key={adv} className={`flex items-start gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5 transition-colors ${isPolitical ? 'hover:border-yellow-400/30' : 'hover:border-[#00c3ff]/30'}`}>
-                    <div className={`mt-1 h-5 w-5 rounded-full flex items-center justify-center flex-shrink-0 ${isPolitical ? 'bg-yellow-400/10' : 'bg-[#00c3ff]/10'}`}>
+                  <div key={adv} className={`flex items-start gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5 transition-colors ${isYellowTheme ? 'hover:border-yellow-400/30' : 'hover:border-[#00c3ff]/30'}`}>
+                    <div className={`mt-1 h-5 w-5 rounded-full flex items-center justify-center flex-shrink-0 ${isYellowTheme ? 'bg-yellow-400/10' : 'bg-[#00c3ff]/10'}`}>
                       <CheckCircle2 className={`h-3.5 w-3.5 ${themeText}`} />
                     </div>
                     <span className="text-[14px] text-[#a0aec0] font-medium leading-tight">
@@ -101,6 +101,112 @@ export function ProductDetail({ product, onBack, language }: ProductDetailProps)
                 ))}
               </div>
             </section>
+
+            {product.id === "broadcast-datafeed" && (
+              <section className="mb-12">
+                <h2 className="text-xl font-bold mb-6 text-white flex items-center gap-3">
+                  <div className={`h-1.5 w-1.5 rounded-full ${themeBg}`} />
+                  {language === 'pt' ? 'Exemplo de Integração' : 'Integration Example'}
+                </h2>
+                <div className="rounded-xl bg-[#0d1117] border border-[#2d3748] overflow-hidden font-mono text-[13px]">
+                  <div className="bg-[#161b22] px-4 py-2 border-b border-[#2d3748] flex items-center gap-2">
+                    <div className="flex gap-1.5">
+                      <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
+                      <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
+                      <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
+                    </div>
+                    <span className="text-[#8b949e] ml-2">websocket_client.js</span>
+                  </div>
+                  <div className="p-6 space-y-1 overflow-x-auto">
+                    <div className="flex gap-4">
+                      <span className="text-[#484f58] select-none">1</span>
+                      <span className="text-[#ff7b72]">const</span>
+                      <span className="text-[#d2a8ff]">stream</span>
+                      <span className="text-[#ff7b72]">=</span>
+                      <span className="text-[#ff7b72]">new</span>
+                      <span className="text-[#79c0ff]">WebSocket</span>
+                      <span className="text-[#a5d6ff]">(</span>
+                      <span className="text-[#a5d6ff]">'wss://api.broadcast.com.br/feed'</span>
+                      <span className="text-[#a5d6ff]">)</span>
+                      <span className="text-white">;</span>
+                    </div>
+                    <div className="flex gap-4">
+                      <span className="text-[#484f58] select-none">2</span>
+                    </div>
+                    <div className="flex gap-4">
+                      <span className="text-[#484f58] select-none">3</span>
+                      <span className="text-[#d2a8ff]">stream</span>
+                      <span className="text-white">.</span>
+                      <span className="text-[#d2a8ff]">on</span>
+                      <span className="text-[#a5d6ff]">(</span>
+                      <span className="text-[#a5d6ff]">'message'</span>
+                      <span className="text-white">,</span>
+                      <span className="text-[#a5d6ff]">(</span>
+                      <span className="text-[#ffa657]">data</span>
+                      <span className="text-[#a5d6ff]">)</span>
+                      <span className="text-[#ff7b72]">{'=>'}</span>
+                      <span className="text-white">{'{'}</span>
+                    </div>
+                    <div className="flex gap-4">
+                      <span className="text-[#484f58] select-none">4</span>
+                      <span className="ml-4 text-[#d2a8ff]">processTicker</span>
+                      <span className="text-[#a5d6ff]">(</span>
+                      <span className="text-[#79c0ff]">JSON</span>
+                      <span className="text-white">.</span>
+                      <span className="text-[#d2a8ff]">parse</span>
+                      <span className="text-[#a5d6ff]">(</span>
+                      <span className="text-[#ffa657]">data</span>
+                      <span className="text-[#a5d6ff]">)</span>
+                      <span className="text-[#a5d6ff]">)</span>
+                      <span className="text-white">;</span>
+                    </div>
+                    <div className="flex gap-4">
+                      <span className="text-[#484f58] select-none">5</span>
+                      <span className="text-white">{'}'}</span>
+                      <span className="text-[#a5d6ff]">)</span>
+                      <span className="text-white">;</span>
+                    </div>
+                    <div className="flex gap-4 pt-4">
+                      <span className="text-[#484f58] select-none">6</span>
+                      <span className="text-[#8b949e]">// Response:</span>
+                    </div>
+                    <div className="flex gap-4">
+                      <span className="text-[#484f58] select-none">7</span>
+                      <span className="text-[#7ee787]">{'{'} "symbol": "PETR4", "price": 34.50, "change": "+1.2%" {'}'}</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {p.availableAssets && (
+              <section className="mb-12">
+                <h2 className="text-xl font-bold mb-8 text-white flex items-center gap-3">
+                  <div className={`h-1.5 w-1.5 rounded-full ${themeBg}`} />
+                  {p.availableAssets.title}
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10">
+                  {p.availableAssets.categories.map((cat) => (
+                    <div key={cat.name} className="space-y-4">
+                      <div className="relative pb-2">
+                        <h3 className="text-[13px] font-black uppercase tracking-wider text-white">
+                          {cat.name}
+                        </h3>
+                        <div className={`absolute bottom-0 left-0 w-full h-[1px] ${themeBg}/30`} />
+                        <div className={`absolute bottom-0 left-0 w-12 h-[1px] ${themeBg}`} />
+                      </div>
+                      <ul className="space-y-2">
+                        {cat.items.map((item) => (
+                          <li key={item} className="text-[13px] text-[#a0aec0] font-medium leading-tight hover:text-white transition-colors">
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
 
             <section>
               <h2 className="text-xl font-bold mb-6 text-white flex items-center gap-3">
@@ -122,8 +228,8 @@ export function ProductDetail({ product, onBack, language }: ProductDetailProps)
 
         <div className="space-y-8">
           <div className="sticky top-24">
-            <div className={`p-10 rounded-2xl bg-[#141d2b] border shadow-2xl relative overflow-hidden ${isPolitical ? 'border-yellow-400/50 shadow-yellow-400/5' : 'border-[#00c3ff]/50 shadow-[#00c3ff]/5'}`}>
-              <div className={`absolute top-0 right-0 w-32 h-32 rounded-full -mr-16 -mt-16 blur-3xl ${isPolitical ? 'bg-yellow-400/5' : 'bg-[#00c3ff]/5'}`} />
+            <div className={`p-10 rounded-2xl bg-[#141d2b] border shadow-2xl relative overflow-hidden ${isYellowTheme ? 'border-yellow-400/50 shadow-yellow-400/5' : 'border-[#00c3ff]/50 shadow-[#00c3ff]/5'}`}>
+              <div className={`absolute top-0 right-0 w-32 h-32 rounded-full -mr-16 -mt-16 blur-3xl ${isYellowTheme ? 'bg-yellow-400/5' : 'bg-[#00c3ff]/5'}`} />
               
               <div className="mb-10">
                 <div className="text-[11px] text-[#a0aec0] uppercase tracking-[2px] font-black mb-3">
@@ -145,7 +251,7 @@ export function ProductDetail({ product, onBack, language }: ProductDetailProps)
               </div>
 
               <div className="space-y-4">
-                <Button className={`w-full h-14 ${themeBg} ${isPolitical ? 'text-black' : 'text-[#001f3f]'} font-black text-sm uppercase tracking-wider hover:opacity-90 hover:scale-[1.02] transition-all shadow-lg ${isPolitical ? 'shadow-yellow-400/20' : 'shadow-[#00c3ff]/20'}`}>
+                <Button className={`w-full h-14 ${themeBg} ${isYellowTheme ? 'text-black' : 'text-[#001f3f]'} font-black text-sm uppercase tracking-wider hover:opacity-90 hover:scale-[1.02] transition-all shadow-lg ${isYellowTheme ? 'shadow-yellow-400/20' : 'shadow-[#00c3ff]/20'}`}>
                   {t.freeTrial}
                 </Button>
                 <Button variant="outline" className="w-full h-14 bg-transparent border-[#2d3748] text-white hover:bg-white/5 font-black text-sm uppercase tracking-wider transition-all">

@@ -52,16 +52,19 @@ export function HomeView({ onExplore, language }: HomeViewProps) {
               </div>
             </div>
             <h1 className="text-5xl lg:text-7xl font-black tracking-tighter leading-[0.95] mb-8">
-              {t.heroTitle.split('move').map((part, i, arr) => (
-                <span key={i}>
-                  {part}
-                  {i < arr.length - 1 && (
-                    <span className="text-[#00c3ff] drop-shadow-[0_0_15px_rgba(0,195,255,0.3)]">
-                      {language === 'pt' ? 'move' : 'moves'}
-                    </span>
-                  )}
-                </span>
-              ))}
+              {(() => {
+                const wordToHighlight = language === 'en' ? 'moves' : language === 'es' ? 'mueve' : 'move';
+                return t.heroTitle.split(wordToHighlight).map((part, i, arr) => (
+                  <span key={i}>
+                    {part}
+                    {i < arr.length - 1 && (
+                      <span className="text-[#00c3ff] drop-shadow-[0_0_15px_rgba(0,195,255,0.3)]">
+                        {wordToHighlight}
+                      </span>
+                    )}
+                  </span>
+                ));
+              })()}
             </h1>
             <p className="text-xl text-[#a0aec0] leading-relaxed mb-12 max-w-2xl font-medium">
               {t.heroSubtext}

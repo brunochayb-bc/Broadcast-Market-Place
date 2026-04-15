@@ -7,7 +7,7 @@ import { ProductDetail } from "@/src/components/ProductDetail";
 import { HomeView } from "@/src/components/HomeView";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import { Search, Bell, User } from "lucide-react";
+import { Search, Bell, User, ArrowLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "motion/react";
@@ -157,6 +157,17 @@ export default function App() {
                       >
                         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                           <div>
+                            {activeCategory !== "home" && !searchQuery && (
+                              <Button 
+                                variant="ghost" 
+                                size="sm" 
+                                className="mb-4 -ml-2 text-muted-foreground hover:text-[#00c3ff] flex items-center gap-2"
+                                onClick={() => handleSelectCategory("home")}
+                              >
+                                <ArrowLeft className="h-4 w-4" />
+                                {t.backToHome}
+                              </Button>
+                            )}
                             <h2 className="text-3xl font-black tracking-tight text-foreground">
                               {searchQuery ? `${t.resultsFor} "${searchQuery}"` : activeCategoryName}
                             </h2>
