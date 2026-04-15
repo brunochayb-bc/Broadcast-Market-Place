@@ -27,15 +27,17 @@ export function HomeView({ onExplore }: HomeViewProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/5 text-[#00c3ff] text-[10px] font-black uppercase tracking-[2px] mb-8 border border-white/10">
-              <Zap className="h-3 w-3 fill-current" />
-              Broadcast Intelligence
-            </div>
+            <img 
+              src="input_file_1.png" 
+              alt="Broadcast Logo" 
+              className="h-16 w-auto object-contain mb-10"
+              referrerPolicy="no-referrer"
+            />
             <h1 className="text-5xl lg:text-7xl font-black tracking-tighter leading-[0.95] mb-8">
-              O Futuro da <span className="text-[#00c3ff] drop-shadow-[0_0_15px_rgba(0,195,255,0.3)]">Análise</span> Financeira Profissional.
+              Inteligência que <span className="text-[#00c3ff] drop-shadow-[0_0_15px_rgba(0,195,255,0.3)]">move</span> os mercados.
             </h1>
             <p className="text-xl text-[#a0aec0] leading-relaxed mb-12 max-w-2xl font-medium">
-              Acesse ferramentas de elite desenhadas para investidores institucionais que demandam precisão absoluta e velocidade inigualável.
+              Conheça módulos adicionais (add-ons) e ferramentas que podem otimizar o seu fluxo operacional e auxiliar na tomada de decisão. Tudo integrado com o ecossistema Broadcast.
             </p>
             <div className="flex flex-wrap gap-6">
               <Button size="lg" onClick={onExplore} className="h-14 px-10 bg-[#00c3ff] text-[#001f3f] font-black uppercase tracking-wider hover:bg-[#00c3ff]/90 hover:scale-105 transition-all shadow-xl shadow-[#00c3ff]/20 border-none">

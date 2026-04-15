@@ -210,6 +210,56 @@ export const products: Product[] = [
     features: ["Swap Builder", "Option Pricing", "Collateral Management"],
     icon: Zap
   },
+  {
+    id: "otc-renda-fixa",
+    name: "OTC Renda Fixa",
+    category: "mercado-balcao",
+    shortDescription: "Registro e negociação de títulos de renda fixa no mercado de balcão.",
+    fullDescription: "Plataforma especializada para o mercado secundário de títulos privados e públicos fora do ambiente de bolsa.",
+    usageExample: "Um investidor institucional negocia um lote de debêntures via balcão com liquidação financeira.",
+    advantages: ["Ampla gama de ativos", "Flexibilidade de negociação", "Registro centralizado", "Eficiência operacional"],
+    cost: "Sob consulta",
+    features: ["Fixed Income OTC", "Secondary Market", "Trade Reporting"],
+    icon: Coins
+  },
+  {
+    id: "motor-backoffice",
+    name: "Motor de Cálculo e Automatização de Back Office",
+    category: "mercado-balcao",
+    shortDescription: "Automatização completa do processamento pós-negociação.",
+    fullDescription: "Solução robusta para cálculo de taxas, impostos, liquidação e conciliação de operações de balcão.",
+    usageExample: "Uma corretora automatiza o cálculo de emolumentos e impostos de todas as suas operações de balcão diárias.",
+    advantages: ["Redução de erros manuais", "Escalabilidade", "Compliance regulatório", "Visibilidade em tempo real"],
+    cost: "Sob consulta",
+    features: ["Calculation Engine", "Back Office Automation", "Settlement Engine"],
+    icon: Cpu
+  },
+
+  // Negociação/Transacional
+  {
+    id: "oms-proprietario",
+    name: "OMS Proprietário",
+    category: "negociacao",
+    shortDescription: "Sistema de Gerenciamento de Ordens customizado para sua instituição.",
+    fullDescription: "Plataforma completa para roteamento, execução e controle de ordens em múltiplos mercados e classes de ativos.",
+    usageExample: "Uma gestora utiliza o OMS Proprietário para centralizar o envio de ordens de diferentes mesas de operação.",
+    advantages: ["Roteamento inteligente", "Controle de limites", "Multi-asset", "Integração total"],
+    cost: "Sob consulta",
+    features: ["Order Management", "Smart Routing", "Risk Controls"],
+    icon: Activity
+  },
+  {
+    id: "motor-calculo-precificacao",
+    name: "Motor de Cálculo e Precificação",
+    category: "negociacao",
+    shortDescription: "Cálculos matemáticos financeiros de alta performance em tempo real.",
+    fullDescription: "Motor especializado para precificação de ativos complexos, derivativos e estruturados durante a negociação.",
+    usageExample: "Um trader utiliza o motor para obter o preço justo de uma opção exótica antes de enviar a oferta.",
+    advantages: ["Alta performance", "Modelos matemáticos avançados", "Precisão absoluta", "Baixa latência"],
+    cost: "Sob consulta",
+    features: ["Pricing Engine", "Real-time Math", "Complex Assets"],
+    icon: Calculator
+  },
 
   // Agro
   {
