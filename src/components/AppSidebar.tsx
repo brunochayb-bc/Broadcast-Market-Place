@@ -1,15 +1,8 @@
 import { 
-  Home, 
-  TrendingUp, 
-  PieChart, 
-  Coins, 
-  Zap, 
   ChevronRight,
   LayoutDashboard,
-  ArrowLeftRight,
-  Activity,
-  Sprout,
-  BrainCircuit
+  Settings,
+  HelpCircle
 } from "lucide-react";
 
 import {
@@ -23,62 +16,21 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
+  SidebarFooter
 } from "@/components/ui/sidebar";
-
-const items = [
-  {
-    title: "Início",
-    url: "home",
-    icon: Home,
-  },
-  {
-    title: "Renda Fixa",
-    url: "renda-fixa",
-    icon: Coins,
-  },
-  {
-    title: "Renda Variável",
-    url: "renda-variavel",
-    icon: TrendingUp,
-  },
-  {
-    title: "Fundos de Investimento",
-    url: "fundos",
-    icon: PieChart,
-  },
-  {
-    title: "Mercado de Balcão",
-    url: "mercado-balcao",
-    icon: ArrowLeftRight,
-  },
-  {
-    title: "Negociação",
-    url: "negociacao",
-    icon: Activity,
-  },
-  {
-    title: "Agro",
-    url: "agro",
-    icon: Sprout,
-  },
-  {
-    title: "Inteligência Artificial",
-    url: "ia",
-    icon: BrainCircuit,
-  },
-  {
-    title: "Outros",
-    url: "outros",
-    icon: Zap,
-  },
-];
+import { categories } from "@/src/data/products";
+import { Language, translations } from "@/src/lib/i18n";
+import { cn } from "@/lib/utils";
 
 interface AppSidebarProps {
   activeCategory: string;
   onSelectCategory: (id: string) => void;
+  language: Language;
 }
 
-export function AppSidebar({ activeCategory, onSelectCategory }: AppSidebarProps) {
+export function AppSidebar({ activeCategory, onSelectCategory, language }: AppSidebarProps) {
+  const t = translations[language];
+
   return (
     <Sidebar className="border-r border-[#2d3748] bg-[#001f3f]">
       <SidebarHeader className="p-6 pb-2">
@@ -106,25 +58,25 @@ export function AppSidebar({ activeCategory, onSelectCategory }: AppSidebarProps
       <SidebarContent className="bg-[#001f3f]">
         <SidebarGroup>
           <SidebarGroupLabel className="px-6 text-[10px] font-extrabold uppercase tracking-[1.5px] text-[#00c3ff]/70 mb-4 mt-4">
-            Segmentos
+            {t.segments}
           </SidebarGroupLabel>
           <SidebarGroupContent className="px-0">
             <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
+              {categories.map((category) => (
+                <SidebarMenuItem key={category.id}>
                   <SidebarMenuButton
-                    isActive={activeCategory === item.url}
-                    onClick={() => onSelectCategory(item.url)}
+                    isActive={activeCategory === category.id}
+                    onClick={() => onSelectCategory(category.id)}
                     className={`
                       flex items-center gap-3 px-6 py-3.5 rounded-none transition-all duration-300 border-l-[3px]
-                      ${activeCategory === item.url 
+                      ${activeCategory === category.id 
                         ? "bg-[#00c3ff]/10 text-white border-[#00c3ff] font-bold" 
                         : "text-[#a0aec0] border-transparent hover:bg-white/5 hover:text-white"}
                     `}
                   >
                     <div className="flex items-center gap-3">
-                      <item.icon className={`h-4 w-4 transition-colors ${activeCategory === item.url ? "text-[#00c3ff]" : "text-[#a0aec0]"}`} />
-                      <span className="text-[13px] tracking-tight">{item.title}</span>
+                      <category.icon className={`h-4 w-4 transition-colors ${activeCategory === category.id ? "text-[#00c3ff]" : "text-[#a0aec0]"}`} />
+                      <span className="text-[13px] tracking-tight">{category.translations[language]}</span>
                     </div>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -133,6 +85,21 @@ export function AppSidebar({ activeCategory, onSelectCategory }: AppSidebarProps
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter className="p-6 border-t border-white/5">
+        <SidebarMenu>
+          {[
+            { icon: Settings, label: language === 'pt' ? "Configurações" : "Settings" },
+            { icon: HelpCircle, label: language === 'pt' ? "Suporte" : "Support" }
+          ].map((item) => (
+            <SidebarMenuItem key={item.label}>
+              <SidebarMenuButton className="text-white/40 hover:text-white transition-colors h-10 px-6">
+                <item.icon className="h-4 w-4 mr-3" />
+                <span className="text-[12px] font-bold">{item.label}</span>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          ))}
+        </SidebarMenu>
+      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   );

@@ -12,11 +12,15 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "motion/react";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Language, translations } from "@/src/lib/i18n";
 
 export default function App() {
   const [activeCategory, setActiveCategory] = useState("home");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [language, setLanguage] = useState<Language>("pt");
+
+  const t = translations[language];
 
   const filteredProducts = useMemo(() => {
     let result = products;
@@ -24,17 +28,24 @@ export default function App() {
       result = result.filter((p) => p.category === activeCategory);
     }
     if (searchQuery) {
-      result = result.filter((p) => 
-        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.shortDescription.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+      result = result.filter((p) => {
+        const pt = p.translations.pt;
+        const en = p.translations.en;
+        return (
+          pt.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          pt.shortDescription.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          en.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          en.shortDescription.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+      });
     }
     return result;
   }, [activeCategory, searchQuery]);
 
   const activeCategoryName = useMemo(() => {
-    return categories.find((c) => c.id === activeCategory)?.name || "Marketplace";
-  }, [activeCategory]);
+    const cat = categories.find((c) => c.id === activeCategory);
+    return cat ? cat.translations[language] : "Marketplace";
+  }, [activeCategory, language]);
 
   const handleSelectCategory = (id: string) => {
     setActiveCategory(id);
@@ -57,6 +68,7 @@ export default function App() {
           <AppSidebar 
             activeCategory={activeCategory} 
             onSelectCategory={handleSelectCategory} 
+            language={language}
           />
           <SidebarInset className="flex flex-col bg-background">
             <header className="sticky top-0 z-30 flex h-[64px] items-center gap-4 border-b border-white/5 bg-[#001f3f] px-8 shadow-lg shadow-black/20">
@@ -67,7 +79,7 @@ export default function App() {
                 <div className="relative w-full max-w-lg hidden md:block group">
                   <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40 group-focus-within:text-[#00c3ff] transition-colors" />
                   <Input
-                    placeholder="Pesquisar no Marketplace Broadcast..."
+                    placeholder={t.searchPlaceholder}
                     className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-white/30 focus-visible:ring-1 focus-visible:ring-[#00c3ff]/50 focus-visible:bg-white/10 transition-all h-10 rounded-lg"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -77,15 +89,25 @@ export default function App() {
 
               <div className="flex items-center gap-6">
                 <div className="flex items-center gap-2 text-[11px] font-bold text-white/60 uppercase tracking-widest">
-                  <span className="cursor-pointer hover:text-[#00c3ff] transition-colors">PT</span>
+                  <span 
+                    className={`cursor-pointer transition-colors ${language === 'pt' ? 'text-[#00c3ff]' : 'hover:text-[#00c3ff]'}`}
+                    onClick={() => setLanguage('pt')}
+                  >
+                    PT
+                  </span>
                   <span className="text-white/20">|</span>
-                  <span className="cursor-pointer hover:text-[#00c3ff] transition-colors">EN</span>
+                  <span 
+                    className={`cursor-pointer transition-colors ${language === 'en' ? 'text-[#00c3ff]' : 'hover:text-[#00c3ff]'}`}
+                    onClick={() => setLanguage('en')}
+                  >
+                    EN
+                  </span>
                 </div>
                 
                 <div className="flex items-center gap-3 pl-6 border-l border-white/10">
                   <div className="flex flex-col items-end hidden sm:flex">
                     <span className="text-[12px] font-bold text-white">Bruno Chayb</span>
-                    <span className="text-[10px] text-white/50">Administrador</span>
+                    <span className="text-[10px] text-white/50">{t.admin}</span>
                   </div>
                   <div className="h-9 w-9 rounded-full bg-gradient-to-br from-[#00c3ff] to-[#007bff] p-[1px]">
                     <div className="h-full w-full rounded-full bg-[#001f3f] flex items-center justify-center text-white font-black text-xs">
@@ -105,12 +127,14 @@ export default function App() {
                         <ProductDetail 
                           product={selectedProduct} 
                           onBack={handleBackToList} 
+                          language={language}
                         />
                       </div>
                     ) : activeCategory === "home" && !searchQuery ? (
                       <div key="home">
                         <HomeView 
                           onExplore={() => handleSelectCategory("renda-fixa")} 
+                          language={language}
                         />
                       </div>
                     ) : (
@@ -124,17 +148,17 @@ export default function App() {
                         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                           <div>
                             <h2 className="text-3xl font-black tracking-tight text-foreground">
-                              {searchQuery ? `Resultados para "${searchQuery}"` : activeCategoryName}
+                              {searchQuery ? `${t.resultsFor} "${searchQuery}"` : activeCategoryName}
                             </h2>
                             <p className="text-muted-foreground mt-1">
-                              {filteredProducts.length} produtos encontrados nesta categoria.
+                              {filteredProducts.length} {t.productsFound}
                             </p>
                           </div>
                           
                           {activeCategory !== "home" && (
                             <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/50 px-4 py-2 rounded-full">
                               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                              Atualizado em tempo real
+                              {t.updatedRealTime}
                             </div>
                           )}
                         </div>
@@ -146,6 +170,7 @@ export default function App() {
                                 <ProductCard 
                                   product={product} 
                                   onViewDetails={handleViewDetails} 
+                                  language={language}
                                 />
                               </div>
                             ))}
@@ -155,16 +180,16 @@ export default function App() {
                             <div className="w-20 h-20 rounded-full bg-muted flex items-center justify-center mb-6">
                               <Search className="h-10 w-10 text-muted-foreground/30" />
                             </div>
-                            <h3 className="text-xl font-bold">Nenhum produto encontrado</h3>
+                            <h3 className="text-xl font-bold">{t.noProductsFound}</h3>
                             <p className="text-muted-foreground max-w-xs mt-2">
-                              Tente ajustar sua busca ou navegar por outras categorias no menu lateral.
+                              {t.noProductsSubtext}
                             </p>
                             <Button 
                               variant="outline" 
                               className="mt-8"
                               onClick={() => setSearchQuery("")}
                             >
-                              Limpar busca
+                              {t.clearSearch}
                             </Button>
                           </div>
                         )}

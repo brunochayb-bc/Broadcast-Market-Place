@@ -1,17 +1,20 @@
 import { Product } from "@/src/data/products";
-import { Card as ShadcnCard, CardContent as ShadcnCardContent, CardFooter as ShadcnCardFooter, CardHeader as ShadcnCardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card as ShadcnCard, CardContent as ShadcnCardContent, CardHeader as ShadcnCardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Info } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
+import { Language, translations } from "@/src/lib/i18n";
 
 interface ProductCardProps {
   product: Product;
   onViewDetails: (product: Product) => void;
+  language: Language;
 }
 
-export function ProductCard({ product, onViewDetails }: ProductCardProps) {
+export function ProductCard({ product, onViewDetails, language }: ProductCardProps) {
   const Icon = product.icon;
+  const t = translations[language];
+  const p = product.translations[language];
 
   return (
     <motion.div
@@ -31,7 +34,7 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
             </div>
             <div className="flex flex-col">
               <h3 className="text-[16px] font-bold text-white group-hover:text-[#00c3ff] transition-colors leading-tight">
-                {product.name}
+                {p.name}
               </h3>
               <span className="text-[10px] uppercase tracking-widest text-[#00c3ff]/60 font-black mt-1">
                 {product.category.replace('-', ' ')}
@@ -39,12 +42,12 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
             </div>
           </div>
           <p className="text-[13px] text-[#a0aec0] mb-4 leading-relaxed line-clamp-2">
-            {product.shortDescription}
+            {p.shortDescription}
           </p>
         </ShadcnCardHeader>
         <ShadcnCardContent className="p-6 pt-0 flex-grow">
           <div className="flex flex-wrap gap-2">
-            {product.features.map((feature) => (
+            {p.features.map((feature) => (
               <span key={feature} className="text-[9px] uppercase tracking-widest font-extrabold text-[#a0aec0] bg-white/5 border border-white/10 px-2 py-1 rounded-md">
                 {feature}
               </span>
@@ -52,7 +55,7 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
           </div>
         </ShadcnCardContent>
         <div className="px-6 py-4 border-t border-white/5 bg-white/[0.02] flex items-center justify-between">
-          <span className="text-[12px] font-bold text-white/40 group-hover:text-[#00c3ff] transition-colors">Ver detalhes</span>
+          <span className="text-[12px] font-bold text-white/40 group-hover:text-[#00c3ff] transition-colors">{t.viewDetails}</span>
           <ArrowRight className="h-4 w-4 text-white/20 group-hover:text-[#00c3ff] group-hover:translate-x-1 transition-all" />
         </div>
       </ShadcnCard>
