@@ -14,7 +14,7 @@ interface ProductCardProps {
 export function ProductCard({ product, onViewDetails, language }: ProductCardProps) {
   const Icon = product.icon;
   const t = translations[language];
-  const p = product.translations[language];
+  const p = product.translations[language] || product.translations.en;
   const isPolitical = product.category === "broadcast-politico";
   const themeText = isPolitical ? "text-yellow-400" : "text-[#00c3ff]";
   const themeBg = isPolitical ? "bg-yellow-400/10" : "bg-[#00c3ff]/10";

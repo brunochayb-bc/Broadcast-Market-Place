@@ -31,11 +31,14 @@ export default function App() {
       result = result.filter((p) => {
         const pt = p.translations.pt;
         const en = p.translations.en;
+        const es = p.translations.es || en;
         return (
           pt.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
           pt.shortDescription.toLowerCase().includes(searchQuery.toLowerCase()) ||
           en.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          en.shortDescription.toLowerCase().includes(searchQuery.toLowerCase())
+          en.shortDescription.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          es.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          es.shortDescription.toLowerCase().includes(searchQuery.toLowerCase())
         );
       });
     }
@@ -101,6 +104,13 @@ export default function App() {
                     onClick={() => setLanguage('en')}
                   >
                     EN
+                  </span>
+                  <span className="text-white/20">|</span>
+                  <span 
+                    className={`cursor-pointer transition-colors ${language === 'es' ? 'text-[#00c3ff]' : 'hover:text-[#00c3ff]'}`}
+                    onClick={() => setLanguage('es')}
+                  >
+                    ES
                   </span>
                 </div>
                 

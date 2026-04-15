@@ -44,20 +44,29 @@ export interface Product {
       cost: string;
       features: string[];
     };
+    es?: {
+      name: string;
+      shortDescription: string;
+      fullDescription: string;
+      usageExample: string;
+      advantages: string[];
+      cost: string;
+      features: string[];
+    };
   };
 }
 
 export const categories = [
-  { id: "home", icon: Globe, translations: { pt: "Home", en: "Home" } },
-  { id: "renda-fixa", icon: Coins, translations: { pt: "Renda Fixa", en: "Fixed Income" } },
-  { id: "renda-variavel", icon: TrendingUp, translations: { pt: "Renda Variável", en: "Equities" } },
-  { id: "fundos", icon: PieChart, translations: { pt: "Fundos de Investimento", en: "Investment Funds" } },
-  { id: "mercado-balcao", icon: ArrowLeftRight, translations: { pt: "Mercado de Balcão", en: "OTC Market" } },
-  { id: "negociacao", icon: Activity, translations: { pt: "Negociação/Transacional", en: "Trading/Transactional" } },
-  { id: "agro", icon: Sprout, translations: { pt: "Agro", en: "Agribusiness" } },
-  { id: "ia", icon: BrainCircuit, translations: { pt: "Inteligência Artificial", en: "Artificial Intelligence" } },
-  { id: "broadcast-politico", icon: Scale, translations: { pt: "Broadcast Político", en: "Broadcast Political" } },
-  { id: "outros", icon: Zap, translations: { pt: "Outros", en: "Others" } },
+  { id: "home", icon: Globe, translations: { pt: "Home", en: "Home", es: "Inicio" } },
+  { id: "renda-fixa", icon: Coins, translations: { pt: "Renda Fixa", en: "Fixed Income", es: "Renta Fija" } },
+  { id: "renda-variavel", icon: TrendingUp, translations: { pt: "Renda Variável", en: "Equities", es: "Renta Variable" } },
+  { id: "fundos", icon: PieChart, translations: { pt: "Fundos de Investimento", en: "Investment Funds", es: "Fondos de Inversión" } },
+  { id: "mercado-balcao", icon: ArrowLeftRight, translations: { pt: "Mercado de Balcão", en: "OTC Market", es: "Mercado de Mostrador" } },
+  { id: "negociacao", icon: Activity, translations: { pt: "Negociação/Transacional", en: "Trading/Transactional", es: "Negociación/Transaccional" } },
+  { id: "agro", icon: Sprout, translations: { pt: "Agro", en: "Agribusiness", es: "Agro" } },
+  { id: "ia", icon: BrainCircuit, translations: { pt: "Inteligência Artificial", en: "Artificial Intelligence", es: "Inteligencia Artificial" } },
+  { id: "broadcast-politico", icon: Scale, translations: { pt: "Broadcast Político", en: "Broadcast Political", es: "Broadcast Político" } },
+  { id: "outros", icon: Zap, translations: { pt: "Outros", en: "Others", es: "Otros" } },
 ];
 
 export const products: Product[] = [
@@ -84,6 +93,15 @@ export const products: Product[] = [
         advantages: ["Full Integration with Broadcast", "Direct access to PUMA B3", "Low latency execution", "Customizable professional interface", "Real-time order management"],
         cost: "Upon request",
         features: ["DMA B3", "Deep Order Book", "Integrated Risk Management"],
+      },
+      es: {
+        name: "TradeMate B3",
+        shortDescription: "Terminal de negociación electrónica para activos de renta fija en B3.",
+        fullDescription: "TradeMate B3 ofrece acceso directo al PUMA Trading System de B3 para la negociación de títulos públicos y privados, con ejecución de alto rendimiento y baja latencia.",
+        usageExample: "Un operador institucional utiliza TradeMate B3 para ejecutar órdenes de compra de títulos públicos federales y crédito privado en los mercados primario y secundario con liquidación en D+0.",
+        advantages: ["Integración Total con Broadcast", "Acceso directo a PUMA B3", "Ejecución de baja latencia", "Interfaz profesional personalizable", "Gestión de órdenes en tiempo real"],
+        cost: "Bajo consulta",
+        features: ["DMA B3", "Libro de Ofertas Profundo", "Gestión de Riesgo Integrada"],
       }
     }
   },
@@ -108,6 +126,15 @@ export const products: Product[] = [
         usageExample: "A global fund manager monitors Brazil's 5-year CDS spread to adjust the hedge of their international portfolio.",
         advantages: ["Real-time global data", "Exhaustive spread history", "Sovereign credit risk analysis", "International interest rate curves"],
         cost: "R$ 450.00 / month",
+        features: ["Global Bonds Data", "CDS Spreads Monitor", "Credit Risk Analytics"],
+      },
+      es: {
+        name: "Bonds & CDS",
+        shortDescription: "Monitoreo de bonos de deuda externa y spreads de CDS.",
+        fullDescription: "Siga en tiempo real el mercado global de deuda soberana y corporativa brasileña, además de los spreads de Credit Default Swaps (CDS) para el monitoreo del riesgo país.",
+        usageExample: "Un gestor de fondos globales monitorea el spread del CDS de 5 años de Brasil para ajustar el hedge de su cartera internacional.",
+        advantages: ["Datos globales en tiempo real", "Historial exhaustivo de spreads", "Análisis de riesgo de crédito soberano", "Curvas de tasas internacionales"],
+        cost: "R$ 450,00 / mes",
         features: ["Global Bonds Data", "CDS Spreads Monitor", "Credit Risk Analytics"],
       }
     }
@@ -621,6 +648,15 @@ export const products: Product[] = [
         advantages: ["Natural language processing", "Fast and precise insights", "Exclusive Broadcast database", "Drastic increase in productivity"],
         cost: "R$ 400.00 / month",
         features: ["Financial GenAI", "Contextual Financial Chat", "Data Synthesis & Insights"],
+      },
+      es: {
+        name: "Broader AI",
+        shortDescription: "IA generativa entrenada en décadas de datos financieros.",
+        fullDescription: "Asistente inteligente que procesa vastas cantidades de datos financieros de Broadcast para responder preguntas complejas y generar insights.",
+        usageExample: "Un analista pregunta a Broader AI sobre los impactos históricos de las alzas de tasas en el sector minorista brasileño.",
+        advantages: ["Procesamiento de lenguaje natural", "Insights rápidos y precisos", "Base de datos exclusiva de Broadcast", "Aumento drástico de la productividad"],
+        cost: "R$ 400,00 / mes",
+        features: ["Financial GenAI", "Contextual Financial Chat", "Data Synthesis & Insights"],
       }
     }
   },
@@ -647,6 +683,15 @@ export const products: Product[] = [
         usageExample: "An investor uses the Broadcast Political App to receive real-time alerts about an important reform vote in Congress.",
         advantages: ["24/7 monitoring of Brasília", "Exclusive expert analysis", "Personalized Push alerts", "Simplified hiring via Credit Card"],
         cost: "R$ 299.00 / month",
+        features: ["Legislative Tracker", "Political Risk Alerts", "Expert Commentary"],
+      },
+      es: {
+        name: "Broadcast Político App",
+        shortDescription: "Monitoreo en tiempo real del escenario político y legislativo.",
+        fullDescription: "La Broadcast Político App ofrece monitoreo exclusivo de Brasilia, con noticias, análisis y alertas sobre decisiones que impactan el mercado financiero. Acceda al contenido completo de Broadcast Político directamente en su dispositivo móvil.",
+        usageExample: "Un inversor utiliza la Broadcast Político App para recibir alertas en tiempo real sobre la votación de una reforma importante en el Congreso.",
+        advantages: ["Monitoreo 24/7 de Brasilia", "Análisis exclusivos de especialistas", "Alertas personalizadas vía Push", "Contratación simplificada vía Tarjeta"],
+        cost: "R$ 299,00 / mes",
         features: ["Legislative Tracker", "Political Risk Alerts", "Expert Commentary"],
       }
     }

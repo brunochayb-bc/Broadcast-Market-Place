@@ -22,7 +22,7 @@ interface ProductDetailProps {
 export function ProductDetail({ product, onBack, language }: ProductDetailProps) {
   const Icon = product.icon;
   const t = translations[language];
-  const p = product.translations[language];
+  const p = product.translations[language] || product.translations.en;
   const isPolitical = product.id === "broadcast-politico-app";
   const themeColor = isPolitical ? "#facc15" : "#00c3ff";
   const themeText = isPolitical ? "text-yellow-400" : "text-[#00c3ff]";

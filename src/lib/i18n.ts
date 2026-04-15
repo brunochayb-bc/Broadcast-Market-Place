@@ -1,4 +1,4 @@
-export type Language = "pt" | "en";
+export type Language = "pt" | "en" | "es";
 
 export const translations = {
   pt: {
@@ -106,5 +106,58 @@ export const translations = {
     hireNow: "Hire Now",
     underConsultation: "Under consultation",
     perMonth: "/ month"
+  },
+  es: {
+    searchPlaceholder: "Buscar en el Marketplace Broadcast...",
+    language: "Idioma",
+    admin: "Administrador",
+    home: "Inicio",
+    segments: "Segmentos",
+    exploreMarketplace: "Explorar Marketplace",
+    talkToExpert: "Hablar con Experto",
+    heroTitle: "Inteligencia que mueve los mercados.",
+    heroSubtext: "Conozca módulos adicionales (add-ons) y herramientas que podem optimizar su flujo operativo y auxiliar en la toma de decisiones. Todo integrado con el ecosistema Broadcast.",
+    features: {
+      latency: {
+        title: "All-in-one",
+        description: "Información, datos y contenidos en tiempo real integrados en una sola plataforma."
+      },
+      security: {
+        title: "Funcionalidades avanzadas",
+        description: "Recursos inteligentes para apoyar la toma de decisiones y optimizar procesos operativos."
+      },
+      intelligence: {
+        title: "Tecnología avanzada",
+        description: "Funcionalidades modernas con total seguridad y trazabilidad."
+      }
+    },
+    ecosystem: {
+      title: "Ecosistema Broadcast",
+      subtitle: "La mayor red de inteligencia financiera de América Latina a su alcance.",
+      items: [
+        "Integración nativa con el Terminal Broadcast",
+        "Curaduría en tiempo real por especialistas",
+        "Soporte técnico premium 24/7",
+        "Facturación centralizada para corporaciones"
+      ],
+      viewAll: "Ver todos los diferenciales",
+      stats: "Más de 2.000 empresas y 12.000 profesionales utilizan las herramientas Broadcast a diario."
+    },
+    resultsFor: "Resultados para",
+    productsFound: "productos encontrados en esta categoría.",
+    updatedRealTime: "Actualizado en tiempo real",
+    noProductsFound: "No se encontraron productos",
+    noProductsSubtext: "Intente ajustar su búsqueda o navegar por otras categorías en el menú lateral.",
+    clearSearch: "Limpiar búsqueda",
+    viewDetails: "Ver detalles",
+    backToList: "Volver a la lista",
+    overview: "Visión General",
+    competitiveAdvantages: "Ventajas Competitivas",
+    applicationScenario: "Escenario de Aplicación",
+    mainFeatures: "Principais Funcionalidades",
+    freeTrial: "7 Días Gratis",
+    hireNow: "Contratar Ahora",
+    underConsultation: "Bajo consulta",
+    perMonth: "/ mes"
   }
 };
