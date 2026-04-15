@@ -66,25 +66,33 @@ export function AppSidebar({ activeCategory, onSelectCategory, language }: AppSi
           <SidebarGroupContent className="px-0">
             <SidebarMenu>
               {categories.filter(c => c.id !== "market-data-api").map((category) => {
-                const isPolitical = category.id === "broadcast-politico";
-                const activeColor = isPolitical ? "border-yellow-400" : "border-[#00c3ff]";
-                const activeBg = isPolitical ? "bg-yellow-400/10" : "bg-[#00c3ff]/10";
-                const activeIcon = isPolitical ? "text-yellow-400" : "text-[#00c3ff]";
+                const isYellow = category.id === "broadcast-politico";
+                const activeColor = isYellow ? "border-yellow-400" : "border-[#00c3ff]";
+                const activeBg = isYellow 
+                  ? "bg-gradient-to-r from-yellow-400/15 to-transparent" 
+                  : "bg-gradient-to-r from-[#00c3ff]/15 to-transparent";
+                const activeIcon = isYellow ? "text-yellow-400" : "text-[#00c3ff]";
+                const glow = isYellow 
+                  ? "shadow-[inset_4px_0_15px_-5px_rgba(250,204,21,0.1)]" 
+                  : "shadow-[inset_4px_0_15px_-5px_rgba(0,195,255,0.1)]";
 
                 return (
                   <SidebarMenuItem key={category.id}>
                     <SidebarMenuButton
                       isActive={activeCategory === category.id}
                       onClick={() => onSelectCategory(category.id)}
-                      className={`
-                        flex items-center gap-3 px-6 py-3.5 rounded-none transition-all duration-300 border-l-[3px]
-                        ${activeCategory === category.id 
-                          ? `${activeBg} text-white ${activeColor} font-bold` 
-                          : "text-[#a0aec0] border-transparent hover:bg-white/5 hover:text-white"}
-                      `}
+                      className={cn(
+                        "flex items-center gap-3 px-6 py-4 rounded-none transition-all duration-300 border-l-[3px]",
+                        activeCategory === category.id 
+                          ? `${activeBg} ${activeColor} ${glow} text-white font-bold` 
+                          : "text-[#a0aec0] border-transparent hover:bg-white/5 hover:text-white"
+                      )}
                     >
                       <div className="flex items-center gap-3">
-                        <category.icon className={`h-4 w-4 transition-colors ${activeCategory === category.id ? activeIcon : "text-[#a0aec0]"}`} />
+                        <category.icon className={cn(
+                          "h-4 w-4 transition-colors",
+                          activeCategory === category.id ? activeIcon : "text-[#a0aec0]"
+                        )} />
                         <span className="text-[13px] tracking-tight">{category.translations[language]}</span>
                       </div>
                     </SidebarMenuButton>
@@ -107,15 +115,18 @@ export function AppSidebar({ activeCategory, onSelectCategory, language }: AppSi
                     <SidebarMenuButton
                       isActive={activeCategory === category.id}
                       onClick={() => onSelectCategory(category.id)}
-                      className={`
-                        flex items-center gap-3 px-6 py-3.5 rounded-none transition-all duration-300 border-l-[3px]
-                        ${activeCategory === category.id 
-                          ? "bg-yellow-400/10 text-white border-yellow-400 font-bold" 
-                          : "text-[#a0aec0] border-transparent hover:bg-white/5 hover:text-white"}
-                      `}
+                      className={cn(
+                        "flex items-center gap-3 px-6 py-4 rounded-none transition-all duration-300 border-l-[3px]",
+                        activeCategory === category.id 
+                          ? "bg-gradient-to-r from-yellow-400/15 to-transparent border-yellow-400 shadow-[inset_4px_0_15px_-5px_rgba(250,204,21,0.1)] text-white font-bold" 
+                          : "text-[#a0aec0] border-transparent hover:bg-white/5 hover:text-white"
+                      )}
                     >
                       <div className="flex items-center gap-3">
-                        <category.icon className={`h-4 w-4 transition-colors ${activeCategory === category.id ? "text-yellow-400" : "text-[#a0aec0]"}`} />
+                        <category.icon className={cn(
+                          "h-4 w-4 transition-colors",
+                          activeCategory === category.id ? "text-yellow-400" : "text-[#a0aec0]"
+                        )} />
                         <span className="text-[13px] tracking-tight">{category.translations[language]}</span>
                       </div>
                     </SidebarMenuButton>

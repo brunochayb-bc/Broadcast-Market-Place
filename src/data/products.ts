@@ -105,7 +105,7 @@ export const products: Product[] = [
         usageExample: "Um operador institucional utiliza o TradeMate B3 para executar ordens de compra de títulos públicos federais e crédito privado nos mercados primário e secundário com liquidação em D+0.",
         advantages: ["Integração Total com o Broadcast", "Acesso direto ao PUMA B3", "Execução de baixa latência", "Interface profissional customizável", "Gestão de ordens em tempo real"],
         cost: "Sob consulta",
-        features: ["DMA B3", "Book de Ofertas Profundo", "Gestão de Risco Integrada"],
+        features: ["Títulos Públicos Federais", "Crédito Privado", "CBIO"],
       },
       en: {
         name: "TradeMate B3",
@@ -114,7 +114,7 @@ export const products: Product[] = [
         usageExample: "An institutional operator uses TradeMate B3 to execute buy orders for federal public bonds and private credit in the primary and secondary markets with T+0 settlement.",
         advantages: ["Full Integration with Broadcast", "Direct access to PUMA B3", "Low latency execution", "Customizable professional interface", "Real-time order management"],
         cost: "Upon request",
-        features: ["DMA B3", "Deep Order Book", "Integrated Risk Management"],
+        features: ["Federal Public Bonds", "Private Credit", "CBIO"],
       },
       es: {
         name: "TradeMate B3",
@@ -123,7 +123,7 @@ export const products: Product[] = [
         usageExample: "Un operador institucional utiliza TradeMate B3 para ejecutar órdenes de compra de títulos públicos federales y crédito privado en los mercados primario y secundario con liquidación en D+0.",
         advantages: ["Integración Total con Broadcast", "Acceso directo a PUMA B3", "Ejecución de baja latencia", "Interfaz profesional personalizable", "Gestión de órdenes en tiempo real"],
         cost: "Bajo consulta",
-        features: ["DMA B3", "Libro de Ofertas Profundo", "Gestión de Riesgo Integrada"],
+        features: ["Títulos Públicos Federales", "Crédito Privado", "CBIO"],
       }
     }
   },
@@ -139,7 +139,7 @@ export const products: Product[] = [
         usageExample: "Um gestor de fundos globais monitora o spread do CDS de 5 anos do Brasil para ajustar o hedge de sua carteira internacional.",
         advantages: ["Dados globais em tempo real", "Histórico exaustivo de spreads", "Análise de risco de crédito soberano", "Curvas de juros internacionais"],
         cost: "R$ 450,00 / mês",
-        features: ["Global Bonds Data", "CDS Spreads Monitor", "Credit Risk Analytics"],
+        features: ["Fenis Market Data", "Bonds Corporativos", "Bonds Soberanos"],
       },
       en: {
         name: "Bonds & CDS",
@@ -148,7 +148,7 @@ export const products: Product[] = [
         usageExample: "A global fund manager monitors Brazil's 5-year CDS spread to adjust the hedge of their international portfolio.",
         advantages: ["Real-time global data", "Exhaustive spread history", "Sovereign credit risk analysis", "International interest rate curves"],
         cost: "R$ 450.00 / month",
-        features: ["Global Bonds Data", "CDS Spreads Monitor", "Credit Risk Analytics"],
+        features: ["Fenis Market Data", "Corporate Bonds", "Sovereign Bonds"],
       },
       es: {
         name: "Bonds & CDS",
@@ -157,7 +157,7 @@ export const products: Product[] = [
         usageExample: "Un gestor de fondos globales monitorea el spread del CDS de 5 años de Brasil para ajustar el hedge de su cartera internacional.",
         advantages: ["Datos globales en tiempo real", "Historial exhaustivo de spreads", "Análisis de riesgo de crédito soberano", "Curvas de tasas internacionales"],
         cost: "R$ 450,00 / mes",
-        features: ["Global Bonds Data", "CDS Spreads Monitor", "Credit Risk Analytics"],
+        features: ["Fenis Market Data", "Bonos Corporativos", "Bonos Soberanos"],
       }
     }
   },
@@ -173,7 +173,7 @@ export const products: Product[] = [
         usageExample: "Um analista de crédito avalia as garantias e o covenant de uma nova emissão de CRA antes de recomendar a alocação.",
         advantages: ["Base CVM/ANBIMA completa", "Histórico de taxas secundárias", "Monitoramento de ratings multi-agência", "Documentação técnica de emissão"],
         cost: "R$ 300,00 / mês",
-        features: ["CRA/CRI Analytics", "Debentures Database", "FIDC Cash Flow Models"],
+        features: ["CRI/CRA", "Debêntures", "Letras Financeiras", "Mercado Secundário"],
       },
       en: {
         name: "Private Credit Data",
@@ -182,7 +182,16 @@ export const products: Product[] = [
         usageExample: "A credit analyst evaluates the guarantees and covenants of a new CRA issuance before recommending allocation.",
         advantages: ["Complete CVM/ANBIMA database", "Secondary rate history", "Multi-agency rating monitoring", "Technical issuance documentation"],
         cost: "R$ 300.00 / month",
-        features: ["CRA/CRI Analytics", "Debentures Database", "FIDC Cash Flow Models"],
+        features: ["CRI/CRA", "Debentures", "Financial Letters", "Secondary Market"],
+      },
+      es: {
+        name: "Datos Crédito Privado",
+        shortDescription: "Base completa de Debentures, CRIs, CRAs y FIDCs.",
+        fullDescription: "La base más completa de activos de crédito privado en Brasil, con tasas indicativas, ratings, flujos de caja detallados y acceso a documentos de emisión.",
+        usageExample: "Un analista de crédito evalúa las garantías y el covenant de una nueva emisión de CRA antes de recomendar la asignación.",
+        advantages: ["Base CVM/ANBIMA completa", "Historial de tasas secundarias", "Monitoreo de ratings multi-agencia", "Documentación técnica de emisión"],
+        cost: "R$ 300,00 / mes",
+        features: ["CRI/CRA", "Debentures", "Letras Financieras", "Mercado Secundario"],
       }
     }
   },
