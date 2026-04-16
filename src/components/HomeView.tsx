@@ -130,22 +130,29 @@ export function HomeView({ onExplore, language }: HomeViewProps) {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.05 }}
-                        whileHover={{ y: -8, scale: 1.02 }}
+                        whileHover={{ 
+                          y: -12, 
+                          scale: 1.05,
+                          transition: { duration: 0.2, ease: "easeOut" }
+                        }}
                         onClick={() => onExplore(category.id)}
                         className={cn(
                           "group cursor-pointer p-6 rounded-2xl bg-white/5 border border-white/10 transition-all duration-300",
                           "flex flex-col items-center text-center gap-4 min-h-[160px] justify-center",
-                          themeBorder,
-                          themeShadow,
-                          "hover:bg-white/[0.08] shadow-lg"
+                          "hover:bg-white/[0.1] hover:border-[#00c3ff]/40 hover:shadow-2xl hover:shadow-[#00c3ff]/20",
+                          "relative overflow-hidden"
                         )}
                       >
+                        {/* Subtle inner glow on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#00c3ff]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        
                         <div className={cn(
-                          "w-14 h-14 rounded-2xl flex items-center justify-center transition-transform duration-500 group-hover:rotate-12 shrink-0",
+                          "w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:rotate-12 group-hover:scale-110 shadow-lg shrink-0",
                           themeBg,
-                          themeColor
+                          themeColor,
+                          "group-hover:shadow-[#00c3ff]/20"
                         )}>
-                          <category.icon className="h-7 w-7" />
+                          <category.icon className="h-8 w-8" />
                         </div>
                         <span className="text-[11px] lg:text-[12px] font-black uppercase tracking-wider text-white/80 group-hover:text-white transition-colors leading-tight break-words max-w-full">
                           {category.translations[language].split('/').map((part, index) => (

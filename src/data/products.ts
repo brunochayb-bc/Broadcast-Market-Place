@@ -104,7 +104,7 @@ export const products: Product[] = [
         fullDescription: "O TradeMate B3 oferece acesso direto ao PUMA Trading System da B3 para negociação de títulos públicos e privados, com execução de alta performance e baixa latência.",
         usageExample: "Um operador institucional utiliza o TradeMate B3 para executar ordens de compra de títulos públicos federais e crédito privado nos mercados primário e secundário com liquidação em D+0.",
         advantages: ["Integração Total com o Broadcast", "Acesso direto ao PUMA B3", "Execução de baixa latência", "Interface profissional customizável", "Gestão de ordens em tempo real"],
-        cost: "Sob consulta",
+        cost: "R$ 100,00",
         features: ["Títulos Públicos Federais", "Crédito Privado", "CBIO"],
       },
       en: {
@@ -113,16 +113,16 @@ export const products: Product[] = [
         fullDescription: "TradeMate B3 offers direct access to B3's PUMA Trading System for trading public and private bonds, with high performance and low latency execution.",
         usageExample: "An institutional operator uses TradeMate B3 to execute buy orders for federal public bonds and private credit in the primary and secondary markets with T+0 settlement.",
         advantages: ["Full Integration with Broadcast", "Direct access to PUMA B3", "Low latency execution", "Customizable professional interface", "Real-time order management"],
-        cost: "Upon request",
+        cost: "R$ 100.00",
         features: ["Federal Public Bonds", "Private Credit", "CBIO"],
       },
       es: {
         name: "TradeMate B3",
         shortDescription: "Terminal de negociación electrónica para activos de renta fija en B3.",
-        fullDescription: "TradeMate B3 ofrece acceso directo al PUMA Trading System de B3 para la negociación de títulos públicos y privados, con ejecución de alto rendimiento y baja latencia.",
+        fullDescription: "TradeMate B3 ofrece acceso directo al PUMA Trading System de B3 para la negociación de títulos públicos y privados, con ejecución de alto rendimiento y baja latência.",
         usageExample: "Un operador institucional utiliza TradeMate B3 para ejecutar órdenes de compra de títulos públicos federales y crédito privado en los mercados primario y secundario con liquidación en D+0.",
         advantages: ["Integración Total con Broadcast", "Acceso directo a PUMA B3", "Ejecución de baja latencia", "Interfaz profesional personalizable", "Gestión de órdenes en tiempo real"],
-        cost: "Bajo consulta",
+        cost: "R$ 100,00",
         features: ["Títulos Públicos Federales", "Crédito Privado", "CBIO"],
       }
     }
@@ -138,7 +138,7 @@ export const products: Product[] = [
         fullDescription: "Acompanhe em tempo real o mercado global de dívida soberana e corporativa brasileira, além de spreads de Credit Default Swaps (CDS) para monitoramento de risco país.",
         usageExample: "Um gestor de fundos globais monitora o spread do CDS de 5 anos do Brasil para ajustar o hedge de sua carteira internacional.",
         advantages: ["Dados globais em tempo real", "Histórico exaustivo de spreads", "Análise de risco de crédito soberano", "Curvas de juros internacionais"],
-        cost: "R$ 450,00 / mês",
+        cost: "R$ 150,00 / mês",
         features: ["Fenis Market Data", "Bonds Corporativos", "Bonds Soberanos"],
       },
       en: {
@@ -147,7 +147,7 @@ export const products: Product[] = [
         fullDescription: "Follow in real-time the global market for Brazilian sovereign and corporate debt, as well as Credit Default Swaps (CDS) spreads for country risk monitoring.",
         usageExample: "A global fund manager monitors Brazil's 5-year CDS spread to adjust the hedge of their international portfolio.",
         advantages: ["Real-time global data", "Exhaustive spread history", "Sovereign credit risk analysis", "International interest rate curves"],
-        cost: "R$ 450.00 / month",
+        cost: "R$ 150.00 / month",
         features: ["Fenis Market Data", "Corporate Bonds", "Sovereign Bonds"],
       },
       es: {
@@ -155,8 +155,8 @@ export const products: Product[] = [
         shortDescription: "Monitoreo de bonos de deuda externa y spreads de CDS.",
         fullDescription: "Siga en tiempo real el mercado global de deuda soberana y corporativa brasileña, además de los spreads de Credit Default Swaps (CDS) para el monitoreo del riesgo país.",
         usageExample: "Un gestor de fondos globales monitorea el spread del CDS de 5 años de Brasil para ajustar el hedge de su cartera internacional.",
-        advantages: ["Datos globales en tiempo real", "Historial exhaustivo de spreads", "Análisis de riesgo de crédito soberano", "Curvas de tasas internacionales"],
-        cost: "R$ 450,00 / mes",
+        advantages: ["Datos globales en tiempo real", "Historial exhaustivo de spreads", "Análisis de risco de crédito soberano", "Curvas de tasas internacionales"],
+        cost: "R$ 150,00 / mes",
         features: ["Fenis Market Data", "Bonos Corporativos", "Bonos Soberanos"],
       }
     }
@@ -206,7 +206,7 @@ export const products: Product[] = [
         fullDescription: "Ferramenta analítica essencial para calcular PU, taxa, duration, convexidade e impostos de diversos títulos públicos e privados.",
         usageExample: "Um tesoureiro calcula o PU de uma debênture IPCA+ para precificar uma operação no mercado secundário.",
         advantages: ["Cálculos matemáticos precisos", "Múltiplos indexadores (DI, IPCA, IGPM)", "Simulação de cenários de estresse", "Exportação para Excel/API"],
-        cost: "R$ 85,00 / mês",
+        cost: "R$ 1.500,00 / mês",
         features: ["Cálculo de PU e Taxa", "Duration e Convexidade", "Simulador de Tributação"],
       },
       en: {
@@ -215,7 +215,7 @@ export const products: Product[] = [
         fullDescription: "Essential analytical tool for calculating price, rate, duration, convexity, and taxes for various public and private bonds.",
         usageExample: "A treasurer calculates the price of an IPCA+ debenture to price a trade in the secondary market.",
         advantages: ["Precise mathematical calculations", "Multiple indexers (DI, IPCA, IGPM)", "Stress scenario simulation", "Export to Excel/API"],
-        cost: "R$ 85.00 / month",
+        cost: "R$ 1,500.00 / month",
         features: ["Price and Rate Calculation", "Duration and Convexity", "Tax Simulator"],
       }
     }
@@ -258,7 +258,7 @@ export const products: Product[] = [
         fullDescription: "O Bridgewise utiliza IA generativa para analisar balanços e indicadores de mais de 50.000 ações globais, fornecendo relatórios e scores de saúde financeira.",
         usageExample: "Um analista gera um relatório fundamentalista comparativo de Small Caps brasileiras vs pares globais em segundos.",
         advantages: ["Cobertura global massiva", "Análise fundamentalista imparcial", "Relatórios gerados em tempo real", "Score de performance proprietário"],
-        cost: "R$ 250,00 / mês",
+        cost: "US$ 40.00 / mês",
         features: ["AI Fundamental Reports", "Global Equity Coverage", "Financial Health Score"],
       },
       en: {
@@ -267,7 +267,7 @@ export const products: Product[] = [
         fullDescription: "Bridgewise uses generative AI to analyze balance sheets and indicators for over 50,000 global stocks, providing reports and financial health scores.",
         usageExample: "An analyst generates a comparative fundamental report of Brazilian Small Caps vs global peers in seconds.",
         advantages: ["Massive global coverage", "Impartial fundamental analysis", "Real-time generated reports", "Proprietary performance score"],
-        cost: "R$ 250.00 / month",
+        cost: "US$ 40.00 / month",
         features: ["AI Fundamental Reports", "Global Equity Coverage", "Financial Health Score"],
       }
     }
@@ -283,7 +283,7 @@ export const products: Product[] = [
         fullDescription: "Ferramenta especializada em Exchange Traded Funds, analisando composição de carteira, taxas de administração e performance relativa.",
         usageExample: "Um gestor de patrimônio compara ETFs de tecnologia globais para otimizar a exposição internacional de seus clientes.",
         advantages: ["Análise profunda de composição", "Comparativo de taxas (TER)", "Performance histórica ajustada", "Exposição setorial e geográfica"],
-        cost: "R$ 200,00 / mês",
+        cost: "US$ 40.00 / mês",
         features: ["ETF Composition Scanner", "Holdings Deep Dive", "Fee & Performance Comparison"],
       },
       en: {
@@ -292,7 +292,7 @@ export const products: Product[] = [
         fullDescription: "Specialized tool for Exchange Traded Funds, analyzing portfolio composition, management fees, and relative performance.",
         usageExample: "A wealth manager compares global technology ETFs to optimize their clients' international exposure.",
         advantages: ["Deep composition analysis", "Fee comparison (TER)", "Adjusted historical performance", "Sectoral and geographical exposure"],
-        cost: "R$ 200.00 / month",
+        cost: "US$ 40.00 / month",
         features: ["ETF Composition Scanner", "Holdings Deep Dive", "Fee & Performance Comparison"],
       }
     }
@@ -310,7 +310,7 @@ export const products: Product[] = [
         fullDescription: "Acesso simplificado a dados de rentabilidade, patrimônio líquido e captação de fundos de investimento brasileiros.",
         usageExample: "Um investidor acompanha a evolução diária da cota de seus fundos multimercado favoritos.",
         advantages: ["Custo-benefício excelente", "Dados oficiais CVM/ANBIMA", "Interface intuitiva", "Atualização diária garantida"],
-        cost: "R$ 50,00 / mês",
+        cost: "R$ 100,00 / mês",
         features: ["Cotas Diárias", "Gráficos de Rentabilidade", "Lista de Favoritos"],
       },
       en: {
@@ -319,7 +319,7 @@ export const products: Product[] = [
         fullDescription: "Simplified access to profitability, net asset value, and fundraising data for Brazilian investment funds.",
         usageExample: "An investor tracks the daily quote evolution of their favorite multi-market funds.",
         advantages: ["Excellent cost-benefit", "Official CVM/ANBIMA data", "Intuitive interface", "Guaranteed daily update"],
-        cost: "R$ 50.00 / month",
+        cost: "R$ 100.00 / month",
         features: ["Daily Quotes", "Profitability Charts", "Favorites List"],
       }
     }
@@ -335,7 +335,7 @@ export const products: Product[] = [
         fullDescription: "Plataforma completa com lâminas detalhadas, histórico longo, análise de risco (VaR, Sharpe, Tracking Error) e matriz de correlação.",
         usageExample: "Um consultor de investimentos realiza um screening para encontrar fundos de ações com alpha consistente acima do IBovespa.",
         advantages: ["Analytics de risco avançado", "Matriz de correlação dinâmica", "Comparador de fundos completo", "Ranking de performance setorial"],
-        cost: "R$ 150,00 / mês",
+        cost: "R$ 200,00 / mês",
         features: ["Advanced Risk Metrics", "Correlation Matrix", "Full Historical Data"],
       },
       en: {
@@ -344,7 +344,7 @@ export const products: Product[] = [
         fullDescription: "Complete platform with detailed fact sheets, long history, risk analysis (VaR, Sharpe, Tracking Error), and correlation matrix.",
         usageExample: "An investment consultant performs a screening to find equity funds with consistent alpha above IBovespa.",
         advantages: ["Advanced risk analytics", "Dynamic correlation matrix", "Complete fund comparator", "Sectoral performance ranking"],
-        cost: "R$ 150.00 / month",
+        cost: "R$ 200.00 / month",
         features: ["Advanced Risk Metrics", "Correlation Matrix", "Full Historical Data"],
       }
     }
@@ -385,7 +385,7 @@ export const products: Product[] = [
         fullDescription: "Consuma dados estruturados de cotas, patrimônio, captação e cadastros diretamente em seus sistemas internos ou portais.",
         usageExample: "Uma corretora integra a API do Broadcast para exibir lâminas de fundos em seu Home Broker.",
         advantages: ["Integração simples e rápida", "Dados altamente estruturados", "Alta disponibilidade e escalabilidade", "Documentação técnica completa"],
-        cost: "R$ 800,00 / mês",
+        cost: "Sob Consulta",
         features: ["RESTful API", "JSON/XML Formats", "High Throughput Access"],
       },
       en: {
@@ -394,7 +394,7 @@ export const products: Product[] = [
         fullDescription: "Consume structured data on quotes, equity, fundraising, and registrations directly in your internal systems or portals.",
         usageExample: "A brokerage integrates the Broadcast API to display fund fact sheets in its Home Broker.",
         advantages: ["Simple and fast integration", "Highly structured data", "High availability and scalability", "Complete technical documentation"],
-        cost: "R$ 800.00 / month",
+        cost: "Upon Request",
         features: ["RESTful API", "JSON/XML Formats", "High Throughput Access"],
       }
     }
@@ -566,7 +566,7 @@ export const products: Product[] = [
         fullDescription: "Fique por dentro de tudo o que acontece no agronegócio com notícias em tempo real, cotações de praças físicas e análises de especialistas.",
         usageExample: "Um produtor rural monitora as cotações da soja em diferentes praças para decidir o momento da venda.",
         advantages: ["Informação em tempo real", "Análises setoriais profundas", "Cobertura completa de safras", "Preços de praças físicas"],
-        cost: "R$ 120,00 / mês",
+        cost: "R$ 250,00 / mês",
         features: ["Real-time News Feed", "Crop Progress Reports", "Physical Market Prices"],
       },
       en: {
@@ -575,7 +575,7 @@ export const products: Product[] = [
         fullDescription: "Stay on top of everything that happens in agribusiness with real-time news, physical market quotes, and expert analysis.",
         usageExample: "A rural producer monitors soybean quotes in different markets to decide the timing of the sale.",
         advantages: ["Real-time information", "Deep sectoral analysis", "Complete crop coverage", "Physical market prices"],
-        cost: "R$ 120.00 / month",
+        cost: "R$ 250.00 / month",
         features: ["Real-time News Feed", "Crop Progress Reports", "Physical Market Prices"],
       }
     }
@@ -668,7 +668,7 @@ export const products: Product[] = [
         fullDescription: "Assistente inteligente que processa vastas quantidades de dados financeiros do Broadcast para responder perguntas complexas e gerar insights.",
         usageExample: "Um analista pergunta ao Broader AI sobre os impactos históricos de altas de juros no setor de varejo brasileiro.",
         advantages: ["Processamento de linguagem natural", "Insights rápidos e precisos", "Base de dados Broadcast exclusiva", "Aumento drástico de produtividade"],
-        cost: "R$ 400,00 / mês",
+        cost: "R$ 120,00 / mês",
         features: ["Financial GenAI", "Contextual Financial Chat", "Data Synthesis & Insights"],
       },
       en: {
@@ -677,7 +677,7 @@ export const products: Product[] = [
         fullDescription: "Intelligent assistant that processes vast amounts of Broadcast financial data to answer complex questions and generate insights.",
         usageExample: "An analyst asks Broader AI about the historical impacts of interest rate hikes on the Brazilian retail sector.",
         advantages: ["Natural language processing", "Fast and precise insights", "Exclusive Broadcast database", "Drastic increase in productivity"],
-        cost: "R$ 400.00 / month",
+        cost: "R$ 120.00 / month",
         features: ["Financial GenAI", "Contextual Financial Chat", "Data Synthesis & Insights"],
       },
       es: {
@@ -686,7 +686,7 @@ export const products: Product[] = [
         fullDescription: "Asistente inteligente que procesa vastas cantidades de datos financieros de Broadcast para responder preguntas complejas y generar insights.",
         usageExample: "Un analista pregunta a Broader AI sobre los impactos históricos de las alzas de tasas en el sector minorista brasileño.",
         advantages: ["Procesamiento de lenguaje natural", "Insights rápidos y precisos", "Base de datos exclusiva de Broadcast", "Aumento drástico de la productividad"],
-        cost: "R$ 400,00 / mes",
+        cost: "R$ 120,00 / mes",
         features: ["Financial GenAI", "Contextual Financial Chat", "Data Synthesis & Insights"],
       }
     }
