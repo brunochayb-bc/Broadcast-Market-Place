@@ -46,9 +46,9 @@ export function HomeView({ onExplore, language }: HomeViewProps) {
               >
                 <div className="relative mb-10">
                   <img 
-                    src="/input_file_0.png" 
+                    src="/logo.svg" 
                     alt="Broadcast Logo" 
-                    className="h-12 w-auto object-contain brightness-0 invert"
+                    className="h-12 w-auto object-contain"
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
@@ -60,7 +60,7 @@ export function HomeView({ onExplore, language }: HomeViewProps) {
                     <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#00c3ff] text-[#001f3f] shadow-lg shadow-[#00c3ff]/20">
                       <LayoutDashboard className="h-6 w-6" />
                     </div>
-                    <span className="text-3xl font-black tracking-tighter text-white uppercase">Broadcast</span>
+                    <span className="text-3xl font-black tracking-tighter text-white">broadcast</span>
                   </div>
                 </div>
                 <h1 className="text-5xl lg:text-7xl font-black tracking-tighter leading-[0.95] mb-8">

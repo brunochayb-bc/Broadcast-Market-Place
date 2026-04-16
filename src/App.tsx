@@ -7,7 +7,7 @@ import { ProductDetail } from "@/src/components/ProductDetail";
 import { HomeView } from "@/src/components/HomeView";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import { Search, Bell, User, ArrowLeft } from "lucide-react";
+import { Search, Bell, User, ArrowLeft, Settings } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "motion/react";
@@ -111,7 +111,20 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-1">
+                  <Button variant="ghost" className="h-9 px-3 gap-2 text-white/60 hover:text-[#00c3ff] hover:bg-[#00c3ff]/10 transition-all rounded-full group">
+                    <Settings className="h-4 w-4 transition-transform group-hover:rotate-45" />
+                    <span className="text-xs font-bold hidden md:inline">{t.settings}</span>
+                  </Button>
+                  <div className="w-[1px] h-4 bg-white/10 mx-1 hidden sm:block" />
+                  <Button variant="ghost" size="icon" className="h-9 w-9 text-white/40 hover:text-[#00c3ff] hover:bg-[#00c3ff]/10 transition-all rounded-full relative">
+                    <Bell className="h-4 w-4" />
+                    <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-[#001f3f]" />
+                  </Button>
+                </div>
+
+                <div className="flex items-center gap-6">
                 <div className="flex items-center gap-2 text-[11px] font-bold text-white/60 uppercase tracking-widest">
                   <span 
                     className={`cursor-pointer transition-colors ${language === 'pt' ? 'text-[#00c3ff]' : 'hover:text-[#00c3ff]'}`}
@@ -147,7 +160,8 @@ export default function App() {
                   </div>
                 </div>
               </div>
-            </header>
+            </div>
+          </header>
 
             <main className="flex-1">
               <ScrollArea className="h-[calc(100vh-4rem)]">

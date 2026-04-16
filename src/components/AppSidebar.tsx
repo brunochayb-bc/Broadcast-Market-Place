@@ -40,9 +40,9 @@ export function AppSidebar({ activeCategory, onSelectCategory, language }: AppSi
           onClick={() => onSelectCategory("home")}
         >
           <img 
-            src="/input_file_0.png" 
+            src="/logo.svg" 
             alt="Broadcast Logo" 
-            className="h-8 w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform"
+            className="h-8 w-auto object-contain group-hover:scale-105 transition-transform"
             referrerPolicy="no-referrer"
             onError={(e) => {
               // Fallback if the logo is not found
@@ -55,7 +55,7 @@ export function AppSidebar({ activeCategory, onSelectCategory, language }: AppSi
             <div className="flex h-7 w-7 items-center justify-center rounded bg-[#00c3ff] text-[#001f3f]">
               <LayoutDashboard className="h-4 w-4" />
             </div>
-            <span className="text-lg font-black tracking-tighter text-white uppercase">Broadcast</span>
+            <span className="text-lg font-black tracking-tighter text-white">broadcast</span>
           </div>
         </div>
       </SidebarHeader>
@@ -65,7 +65,7 @@ export function AppSidebar({ activeCategory, onSelectCategory, language }: AppSi
             {t.segments}
           </SidebarGroupLabel>
           <SidebarGroupContent className="px-0">
-            <SidebarMenu>
+            <SidebarMenu className="gap-1">
               {categories.filter(c => c.id !== "market-data-api").map((category) => {
                 const isYellow = category.id === "broadcast-politico";
                 const activeColor = isYellow ? "border-yellow-400" : "border-[#00c3ff]";
@@ -83,10 +83,10 @@ export function AppSidebar({ activeCategory, onSelectCategory, language }: AppSi
                       isActive={activeCategory === category.id}
                       onClick={() => onSelectCategory(category.id)}
                       className={cn(
-                        "flex items-center gap-3 px-6 py-4 rounded-none transition-all duration-300 border-l-[3px]",
+                        "flex items-center gap-3 px-6 py-5 rounded-none transition-all duration-300 border-l-[3px]",
                         activeCategory === category.id 
                           ? `${activeBg} ${activeColor} ${glow} text-white font-bold` 
-                          : "text-[#a0aec0] border-transparent hover:bg-white/5 hover:text-white"
+                          : "text-[#a0aec0] border-transparent hover:bg-[#00c3ff]/5 hover:text-[#00c3ff] hover:border-[#00c3ff]/30"
                       )}
                     >
                       <div className="flex items-center gap-3">
@@ -117,10 +117,10 @@ export function AppSidebar({ activeCategory, onSelectCategory, language }: AppSi
                       isActive={activeCategory === category.id}
                       onClick={() => onSelectCategory(category.id)}
                       className={cn(
-                        "flex items-center gap-3 px-6 py-4 rounded-none transition-all duration-300 border-l-[3px]",
+                        "flex items-center gap-3 px-6 py-5 rounded-none transition-all duration-300 border-l-[3px]",
                         activeCategory === category.id 
                           ? "bg-gradient-to-r from-yellow-400/15 to-transparent border-yellow-400 shadow-[inset_4px_0_15px_-5px_rgba(250,204,21,0.1)] text-white font-bold" 
-                          : "text-[#a0aec0] border-transparent hover:bg-white/5 hover:text-white"
+                          : "text-[#a0aec0] border-transparent hover:bg-yellow-400/5 hover:text-yellow-400 hover:border-yellow-400/30"
                       )}
                     >
                       <div className="flex items-center gap-3">
@@ -141,7 +141,6 @@ export function AppSidebar({ activeCategory, onSelectCategory, language }: AppSi
       <SidebarFooter className="p-6 border-t border-white/5">
         <SidebarMenu>
           {[
-            { icon: Settings, label: t.settings },
             { icon: HelpCircle, label: t.support },
             { icon: MessageSquare, label: t.talkToExpert, highlight: true }
           ].map((item) => (
